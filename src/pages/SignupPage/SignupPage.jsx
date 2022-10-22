@@ -35,6 +35,7 @@ function SignupPage() {
     authService
       .signup(requestBody)
       .then((response) => {
+        console.log(response.data);
         // If the POST request is successful redirect to the login page
         navigate("/login");
       })
