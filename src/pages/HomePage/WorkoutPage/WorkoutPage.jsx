@@ -1,6 +1,7 @@
 import "./WorkoutPage.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import workoutService from "../../../services/workout.service";
+import ExerciseCard from "../../../components/ExerciseCard/ExerciseCard";
 
 function WorkoutPage() {
   const [form, setForm] = useState({
@@ -14,17 +15,38 @@ function WorkoutPage() {
     weightLifted: 0,
   });
 
-  //   console.log("form:", form);
+  const [exerciseList, setExerciseList] = useState([]);
+
+  const [workoutStatus, setWorkoutStatus] = useState(undefined);
+
+  useEffect(() => {
+    workoutService
+      .getAllExercises()
+      .then((response) => {
+        console.log("API LIST:", response.data);
+        setExerciseList(response.data);
+      })
+      .catch((error) => {
+        console.log("error:", error);
+      });
+  }, []);
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-
     setForm({ ...form, [name]: value });
   }
 
   function handleSetChange(evt) {
     const { name, value } = evt.target;
     setArrayOfSets({ ...arrayOfSets, [name]: value });
+  }
+
+  function handleRadioButton(evt) {
+    const { selected } = evt.target;
+    if (selected) {
+      setForm({ ...form, workoutType: selected });
+      return;
+    }
   }
 
   function addSet() {
@@ -41,23 +63,35 @@ function WorkoutPage() {
     workoutService
       .createOne(requestBody)
       .then((response) => {
-        console.log("WE DID IT:", response.data);
+        // console.log(response.data);
       })
       .catch((error) => {
         console.log("error:", error);
       });
   }
 
-  function handleRadioButton(evt) {
-    const { selected } = evt.target;
-    if (selected) {
-      setForm({ ...form, workoutType: selected });
-      return;
-    }
-  }
-
   return (
     <div>
+      {workoutStatus === "started" ? (
+        <button
+          type="button"
+          onClick={() => {
+            setWorkoutStatus("finished");
+          }}
+        >
+          Finish Workout
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={() => {
+            setWorkoutStatus("started");
+          }}
+        >
+          Start Workout
+        </button>
+      )}
+
       <h1>WorkoutPage</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -80,12 +114,18 @@ function WorkoutPage() {
         <br />
         <label>
           Exercise Name
-          <input
-            type="text"
-            name="exerciseName"
-            onChange={handleChange}
-            value={form.exerciseName}
-          ></input>
+          <select name="exerciseName" onChange={handleChange}>
+            <option disabled selected>
+              None
+            </option>
+            {exerciseList.map((el) => {
+              return (
+                <option key={el.id} value={el.name}>
+                  {el.name}
+                </option>
+              );
+            })}
+          </select>
         </label>
         <br />
         <div>
@@ -108,13 +148,13 @@ function WorkoutPage() {
               onChange={handleSetChange}
             ></input>
           </label>
-          <button type="submit" onClick={addSet}>
+          <button type="button" onClick={addSet}>
             Add Set
           </button>
         </div>
-
         <button type="submit">Add Exercise</button>
       </form>
+      <ExerciseCard form={form} />
     </div>
   );
 }

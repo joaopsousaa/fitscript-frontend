@@ -23,6 +23,11 @@ class WorkoutService {
   createOne = async (requestBody) => {
     return this.api.post("/workout", requestBody);
   };
+
+  //GET List of Exercises From API
+  getAllExercises = async () => {
+    return this.api.get("/workout");
+  };
 }
 
 // Create one instance of the service

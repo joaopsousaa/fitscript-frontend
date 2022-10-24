@@ -45,14 +45,7 @@ function App() {
           }
         />
 
-        <Route
-          path="/workout"
-          element={
-            <IsAnon>
-              <WorkoutPage />
-            </IsAnon>
-          }
-        />
+        <Route path="/workout" element={<WorkoutPage />} />
       </Routes>
     </div>
   );
