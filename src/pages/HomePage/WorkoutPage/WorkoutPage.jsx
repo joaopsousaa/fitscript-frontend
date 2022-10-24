@@ -2,6 +2,7 @@ import "./WorkoutPage.css";
 import { useState, useEffect } from "react";
 import workoutService from "../../../services/workout.service";
 import ExerciseCard from "../../../components/ExerciseCard/ExerciseCard";
+import Chronometer from "../../../components/Chronometer/Chronometer";
 
 function WorkoutPage() {
   const [form, setForm] = useState({
@@ -91,6 +92,7 @@ function WorkoutPage() {
           Start Workout
         </button>
       )}
+      <Chronometer status={workoutStatus} />
 
       <h1>WorkoutPage</h1>
       <form onSubmit={handleSubmit}>
