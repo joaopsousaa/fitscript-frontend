@@ -45,16 +45,6 @@ function App() {
             </IsAnon>
           }
         />
-
-        <Route
-          path="/workout"
-          element={
-            <IsAnon>
-              <WorkoutPage />
-            </IsAnon>
-          }
-        />
-
         <Route
           path="/bmi"
           element={
