@@ -6,6 +6,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import WorkoutPage from "./pages/HomePage/WorkoutPage/WorkoutPage";
+import BmiPage from "./pages/BmiPage/BmiPage";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -50,6 +51,15 @@ function App() {
           element={
             <IsAnon>
               <WorkoutPage />
+            </IsAnon>
+          }
+        />
+
+        <Route
+          path="/bmi"
+          element={
+            <IsAnon>
+              <BmiPage />
             </IsAnon>
           }
         />
