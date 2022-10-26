@@ -1,6 +1,6 @@
 import "./BmiPage.css";
 import { useState } from "react";
-import axios from "axios";
+import bmiService from "../../services/bmi.service";
 
 function BmiPage() {
   const [form, setForm] = useState({
@@ -8,6 +8,12 @@ function BmiPage() {
     height: "",
     sex: "",
     age: "",
+  });
+
+  const [bmiData, setBmiData] = useState({
+    bmi: "",
+    health: "",
+    healthy_bmi_range: "",
   });
 
   function handleChange(evt) {
@@ -18,34 +24,32 @@ function BmiPage() {
   function handleSubmit(evt) {
     evt.preventDefault();
 
-    const options = {
-      method: "POST",
-      url: "https://bmi.p.rapidapi.com/",
-      headers: {
-        "content-type": "application/json",
-        "X-RapidAPI-Key": process.env.REACT_APP_BMI_API_KEY,
-        "X-RapidAPI-Host": "bmi.p.rapidapi.com",
-      },
-      data: `{"weight":{"value":${form.weight},"unit":"kg"},"height":{"value":${form.height},"unit":"cm"},"sex":${form.sex},"age":${form.age},"waist":"","hip":""}`,
-    };
+    const requestBody = { ...form };
+    console.log(requestBody);
 
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log(response.data);
+    bmiService
+      .createOne(requestBody)
+      .then((response) => {
+        // console.log(response.data);
+        const { data } = response.data;
+        console.log("this is data", data);
+        setBmiData({
+          ...data,
+        });
+        console.log("THIS IS BMIDATA", bmiData);
       })
-      .catch(function (error) {
-        console.error(error);
+      .catch((error) => {
+        console.log(error);
       });
   }
 
-  function handleRadioButton(evt) {
-    const { selected } = evt.target;
-    if (selected) {
-      setForm({ ...form, sex: selected });
-      return;
-    }
-  }
+  // function handleRadioButton(evt) {
+  //   const { selected } = evt.target;
+  //   if (selected) {
+  //     setForm({ ...form, sex: selected });
+  //     return;
+  //   }
+  // }
 
   return (
     <div>
@@ -75,7 +79,7 @@ function BmiPage() {
 
         <br />
 
-        <label>
+        {/* <label>
           Sex:
           <label>
             M
@@ -83,7 +87,7 @@ function BmiPage() {
               type="radio"
               name="sex"
               onChange={handleRadioButton}
-              value={form.sex}
+              selected="m"
             ></input>
           </label>
           <label>
@@ -92,10 +96,10 @@ function BmiPage() {
               type="radio"
               name="sex"
               onChange={handleRadioButton}
-              value={form.sex}
+              selected="f"
             ></input>
           </label>
-        </label>
+        </label> */}
 
         <br />
 
@@ -113,6 +117,13 @@ function BmiPage() {
 
         <button type="submit">Calculate</button>
       </form>
+      {bmiData.bmi !== "" && (
+        <>
+          <h2>Your BMI: {bmiData.bmi}</h2>
+          <h2>Health: {bmiData.health}</h2>
+          <h2>Healthy BMI Range: {bmiData.healthy_bmi_range}</h2>
+        </>
+      )}
     </div>
   );
 }

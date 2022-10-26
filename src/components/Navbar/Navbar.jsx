@@ -49,7 +49,7 @@ function Navbar() {
             {" "}
             <button>Dashboard</button>{" "}
           </Link>
-          <Link to="/BMI">
+          <Link to="/bmi">
             {" "}
             <button>BMI</button>{" "}
           </Link>

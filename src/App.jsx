@@ -53,6 +53,7 @@ function App() {
             </IsAnon>
           }
         />
+        <Route path="/workout" element={<WorkoutPage />} />
       </Routes>
     </div>
   );
