@@ -14,7 +14,7 @@ function ExerciseCard({ form }) {
               {" "}
               <th>Set #{form.set.indexOf(el) + 1}</th>
               <tr>
-                <th>Number of Reps</th>
+                <th>Reps</th>
                 <td>{el.numberOfReps}</td>
               </tr>
               <tr>

@@ -1,8 +1,8 @@
 import "./WorkoutPage.css";
 import { useState, useEffect } from "react";
-import workoutService from "../../../services/workout.service";
-import ExerciseCard from "../../../components/ExerciseCard/ExerciseCard";
-import Chronometer from "../../../components/Chronometer/Chronometer";
+import workoutService from "../../services/workout.service";
+import ExerciseCard from "../../components/ExerciseCard/ExerciseCard";
+import Chronometer from "../../components/Chronometer/Chronometer";
 
 function WorkoutPage() {
   const [form, setForm] = useState({
@@ -64,7 +64,7 @@ function WorkoutPage() {
     workoutService
       .createOne(requestBody)
       .then((response) => {
-        // console.log(response.data);
+        console.log("THIS IS RESPONSE", response);
       })
       .catch((error) => {
         console.log("error:", error);
@@ -132,7 +132,7 @@ function WorkoutPage() {
         <br />
         <div>
           <label>
-            Number of Reps
+            Reps
             <input
               type="number"
               name="numberOfReps"
@@ -142,7 +142,7 @@ function WorkoutPage() {
           </label>
           <br />
           <label>
-            Weight Lifted
+            Weight Lifted (kg)
             <input
               type="number"
               name="weightLifted"
