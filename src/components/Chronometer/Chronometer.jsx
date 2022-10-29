@@ -1,22 +1,19 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
-function Chronometer({ status }) {
-  const [time, setTime] = useState(0);
-
+function Chronometer({ status, startWorkoutTime, time }) {
   useEffect(() => {
     let interval;
     if (status === "started") {
       interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 1);
+        startWorkoutTime();
       }, 1000);
     } else if (status === "finished") {
       console.log(status);
       clearInterval(interval);
       interval = null;
-      setTime(0);
     }
     return () => clearInterval(interval);
-  }, [status]);
+  }, [status, startWorkoutTime]);
   return (
     <div>
       <span>{("0" + Math.floor((time / 3600) % 3600)).slice(-2)}:</span>

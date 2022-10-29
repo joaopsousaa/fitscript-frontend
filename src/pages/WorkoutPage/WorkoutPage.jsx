@@ -6,10 +6,20 @@ import Chronometer from "../../components/Chronometer/Chronometer";
 
 function WorkoutPage() {
   const [form, setForm] = useState({
-    workoutType: "",
-    exerciseName: "",
-    set: [],
+    // type: "",
+    name: "",
+    sets: [],
   });
+
+  const [workout, setWorkout] = useState([
+    {
+      // type: "",
+      name: "",
+      sets: [],
+    },
+  ]);
+
+  // console.log("THIS IS WORKOUTTTT", workout);
 
   const [arrayOfSets, setArrayOfSets] = useState({
     numberOfReps: 0,
@@ -19,6 +29,10 @@ function WorkoutPage() {
   const [exerciseList, setExerciseList] = useState([]);
 
   const [workoutStatus, setWorkoutStatus] = useState(undefined);
+
+  const [time, setTime] = useState(0);
+
+  // console.log("current TIME:", time);
 
   useEffect(() => {
     workoutService
@@ -34,32 +48,46 @@ function WorkoutPage() {
 
   function handleChange(evt) {
     const { name, value } = evt.target;
+    console.log("This is value", value);
+
     setForm({ ...form, [name]: value });
   }
 
   function handleSetChange(evt) {
-    const { name, value } = evt.target;
+    let { name, value, min, max } = evt.target;
+    value = Math.max(Number(min), Math.min(Number(max), Number(value)));
     setArrayOfSets({ ...arrayOfSets, [name]: value });
   }
 
-  function handleRadioButton(evt) {
-    const { selected } = evt.target;
-    if (selected) {
-      setForm({ ...form, workoutType: selected });
-      return;
-    }
-  }
+  // function handleRadioButton(evt) {
+  //   const { selected } = evt.target;
+  //   if (selected) {
+  //     setForm({ ...form, type: selected });
+  //     return;
+  //   }
+  // }
 
   function addSet() {
-    form.set.push(arrayOfSets);
+    form.sets.push(arrayOfSets);
     setArrayOfSets({ numberOfReps: 0, weightLifted: 0 });
+  }
+
+  function addExercise() {
+    setWorkout([...workout, form]);
+    // workout.push(form);
+    setForm({ name: "", sets: [] });
+  }
+
+  function startWorkoutTime() {
+    setTime((prevTime) => prevTime + 1);
   }
 
   function handleSubmit(evt) {
     evt.preventDefault();
-
-    const requestBody = { ...form };
-    console.log(requestBody);
+    console.log(evt);
+    console.log(workout);
+    const requestBody = { workout, time };
+    console.log("this is REQUEST BODY", requestBody);
 
     workoutService
       .createOne(requestBody)
@@ -73,90 +101,84 @@ function WorkoutPage() {
 
   return (
     <div>
-      {workoutStatus === "started" ? (
-        <button
-          type="button"
-          onClick={() => {
-            setWorkoutStatus("finished");
-          }}
-        >
-          Finish Workout
-        </button>
-      ) : (
-        <button
-          type="button"
-          onClick={() => {
-            setWorkoutStatus("started");
-          }}
-        >
-          Start Workout
-        </button>
-      )}
-      <Chronometer status={workoutStatus} />
-
       <h1>WorkoutPage</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Workout Type <br />
-          <label>Strength</label>
-          <input
-            type="radio"
-            name="workoutType"
-            onChange={handleRadioButton}
-            selected="strength"
-          ></input>
-          <label>Cardio</label>
-          <input
-            type="radio"
-            name="workoutType"
-            onChange={handleRadioButton}
-            selected="cardio"
-          ></input>
-        </label>
-        <br />
-        <label>
-          Exercise Name
-          <select name="exerciseName" onChange={handleChange}>
-            <option disabled selected>
-              None
-            </option>
-            {exerciseList.map((el) => {
-              return (
-                <option key={el.id} value={el.name}>
-                  {el.name}
+        {workoutStatus === "started" ? (
+          <>
+            <button
+              type="button"
+              onClick={() => {
+                setWorkoutStatus("finished");
+              }}
+            >
+              Finish Workout
+            </button>
+            <Chronometer
+              status={workoutStatus}
+              startWorkoutTime={startWorkoutTime}
+              time={time}
+            />
+            <label>
+              Exercise Name
+              <select name="name" onChange={handleChange} defaultValue={"None"}>
+                <option disabled value="None">
+                  None
                 </option>
-              );
-            })}
-          </select>
-        </label>
-        <br />
-        <div>
-          <label>
-            Reps
-            <input
-              type="number"
-              name="numberOfReps"
-              value={arrayOfSets.numberOfReps}
-              onChange={handleSetChange}
-            ></input>
-          </label>
-          <br />
-          <label>
-            Weight Lifted (kg)
-            <input
-              type="number"
-              name="weightLifted"
-              value={arrayOfSets.weightLifted}
-              onChange={handleSetChange}
-            ></input>
-          </label>
-          <button type="button" onClick={addSet}>
-            Add Set
+                {exerciseList.map((el) => {
+                  return (
+                    <option key={el.id} value={el.name}>
+                      {el.name}
+                    </option>
+                  );
+                })}
+              </select>
+            </label>
+            <br />
+            <div>
+              <label>
+                Reps
+                <input
+                  type="number"
+                  min="1"
+                  max="1000"
+                  name="numberOfReps"
+                  value={arrayOfSets.numberOfReps}
+                  onChange={handleSetChange}
+                ></input>
+              </label>
+              <br />
+              <label>
+                Weight Lifted (kg)
+                <input
+                  type="number"
+                  min="1"
+                  max="1000"
+                  name="weightLifted"
+                  value={arrayOfSets.weightLifted}
+                  onChange={handleSetChange}
+                ></input>
+              </label>
+              <button type="button" onClick={addSet}>
+                Add Set
+              </button>
+            </div>
+            <button type="button" onClick={addExercise}>
+              Add Exercise
+            </button>{" "}
+          </>
+        ) : (
+          <button
+            type="submit"
+            onClick={() => {
+              setTime(0);
+              setWorkoutStatus("started");
+            }}
+          >
+            Start Workout
           </button>
-        </div>
-        <button type="submit">Add Exercise</button>
+        )}
       </form>
-      <ExerciseCard form={form} />
+      <ExerciseCard workout={workout} />
     </div>
   );
 }
