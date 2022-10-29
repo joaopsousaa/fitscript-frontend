@@ -53,6 +53,10 @@ function Navbar() {
             {" "}
             <button>BMI</button>{" "}
           </Link>
+          <Link to="/profile">
+            {" "}
+            <button>Profile</button>{" "}
+          </Link>
           {/* <Link to="/logout">
             {" "}
             <button>Logout</button>{" "}

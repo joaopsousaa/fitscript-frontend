@@ -23,9 +23,9 @@ function App() {
         <Route
           path="/profile"
           element={
-            <IsPrivate>
+            <IsAnon>
               <ProfilePage />
-            </IsPrivate>
+            </IsAnon>
           }
         />
 
