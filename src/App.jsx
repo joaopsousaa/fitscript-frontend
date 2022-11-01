@@ -7,6 +7,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import WorkoutPage from "./pages/WorkoutPage/WorkoutPage";
 import BmiPage from "./pages/BmiPage/BmiPage";
+import DashboardPage from "./pages/DashboardPage/DashboardPage";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -26,6 +27,15 @@ function App() {
             <IsAnon>
               <ProfilePage />
             </IsAnon>
+          }
+        />
+
+        <Route
+          path="/dashboard"
+          element={
+            <IsPrivate>
+              <DashboardPage />
+            </IsPrivate>
           }
         />
 
@@ -53,7 +63,14 @@ function App() {
             </IsAnon>
           }
         />
-        <Route path="/workout" element={<WorkoutPage />} />
+        <Route
+          path="/workout"
+          element={
+            <IsPrivate>
+              <WorkoutPage />
+            </IsPrivate>
+          }
+        />
       </Routes>
     </div>
   );

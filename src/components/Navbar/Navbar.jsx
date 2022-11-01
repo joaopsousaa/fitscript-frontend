@@ -26,6 +26,18 @@ function Navbar() {
             {" "}
             <button>Workout</button>{" "}
           </Link>
+          <Link to="/dashboard">
+            {" "}
+            <button>Dashboard</button>{" "}
+          </Link>
+          <Link to="/bmi">
+            {" "}
+            <button>BMI</button>{" "}
+          </Link>
+          <Link to="/profile">
+            {" "}
+            <button>Profile</button>{" "}
+          </Link>
 
           <span>{user && user.name}</span>
         </>
