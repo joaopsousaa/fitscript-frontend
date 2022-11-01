@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Goal.css";
 
-function Goal() {
+function Goal({ title, deadline }) {
   const [goal, setGoal] = useState({
     title: "",
     deadline: new Date(),
@@ -20,20 +20,45 @@ function Goal() {
     }
   }
 
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    console.log(evt);
+  }
+
   return (
     <div>
       <h1> My Fitness Goal: </h1>
       <form>
+        <label>Title</label>
         <label>
-          Title
-          <input type="radio" name="title" onChange={handleRadioButton}></input>
+          Lose weight
+          <input
+            type="radio"
+            name="title"
+            onChange={handleRadioButton}
+            selected={goal.title}
+          ></input>
+        </label>
+        <label>
+          Muscle gain
+          <input
+            type="radio"
+            name="title"
+            onChange={handleRadioButton}
+            selected={goal.title}
+          ></input>
         </label>
 
         <br />
 
         <label>
           Deadline
-          <input type="date" name="deadline" onChange={handleChange}></input>
+          <input
+            type="date"
+            name="deadline"
+            onChange={handleChange}
+            value={goal.deadline}
+          ></input>
         </label>
 
         <button type="submit"> Submit</button>

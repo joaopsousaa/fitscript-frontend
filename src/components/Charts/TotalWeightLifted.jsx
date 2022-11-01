@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 
-function Charts({ chartData }) {
+function TotalWeightLifted({ chartData }) {
   return (
     <div>
       <Line
@@ -10,7 +10,7 @@ function Charts({ chartData }) {
         options={{
           title: {
             display: true,
-            text: "Total Time Working Out",
+            text: "Total Weight Lifted per Workout",
             fontSize: 20,
           },
           legend: {
@@ -23,4 +23,4 @@ function Charts({ chartData }) {
   );
 }
 
-export default Charts;
+export default TotalWeightLifted;

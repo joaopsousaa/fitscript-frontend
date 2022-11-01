@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import profileService from "../../services/workout.service";
-//import { AuthProviderWrapper } from "../../context/auth.context";
-//import { AuthContext } from "../../context/auth.context";
+// import { AuthContext } from "../../context/auth.context";
 
 function ProfilePage() {
   // const { user, authenticate } = AuthProviderWrapper();
@@ -36,6 +35,7 @@ function ProfilePage() {
       .createOne(requestBody)
       .then((response) => {
         console.log("RESPONSE:", response);
+
         // authenticate(response.data);
       })
       .catch((error) => {

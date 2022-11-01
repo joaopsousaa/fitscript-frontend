@@ -1,7 +1,7 @@
 import "./DashboardPage.css";
 import Charts from "../../components/Charts/Charts";
 import Loading from "../../components/Loading/Loading";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { UserWorkoutsContext } from "../../context/userWorkouts.context";
 
 function DashboardPage() {
@@ -16,33 +16,68 @@ function DashboardPage() {
     return data.totalTimeWorkingOut;
   });
 
-  const [chartData, setChartData] = useState({});
+  // const sumWeightLifted = userWorkouts.reduce((acc, currentValue) => {
+  //   currentValue.exercises.map((exercise) => {
+  //     return exercise.sets.map((set) => {
+  //       console.log(acc);
+  //       return set.numberOfReps * set.weightLifted;
+  //     });
+  //   });
+  //   return acc + currentValue;
+  // }, 0);
 
-  if (userWorkouts.length) {
-    setChartData({
-      labels: workoutDate,
+  const arrayOfWeightLifted = userWorkouts.map((element) =>
+    element.exercises.map((exercise) =>
+      exercise.sets.map((set) => set.numberOfReps * set.weightLifted)
+    )
+  );
 
-      datasets: [
-        {
-          label: "Time Working Out",
-          lineTension: 0.5,
-          backgroundColor: "rgba(75,192,192,1)",
-          borderColor: "rgba(0,0,0,1)",
-          borderWidth: 2,
-          data: workoutTotalTimeWorkingOut,
-        },
-      ],
-    });
-  }
+  const sumOfWeightLifted = arrayOfWeightLifted
+    .flat(Infinity)
+    .reduce((acc, currentValue) => acc + currentValue, 0);
+
+  console.log("this is totalweight", sumOfWeightLifted);
+
+  const chartData = {
+    labels: workoutDate,
+
+    datasets: [
+      {
+        label: "Time Working Out",
+        lineTension: 0.5,
+        backgroundColor: "rgba(75,192,192,1)",
+        borderColor: "rgba(0,0,0,1)",
+        borderWidth: 2,
+        data: workoutTotalTimeWorkingOut,
+      },
+    ],
+  };
+
+  // const totalWeightLifted = {
+  //   labels: workoutDate,
+
+  //   datasets: [
+  //     {
+  //       label: "Time Working Out",
+  //       lineTension: 0.5,
+  //       backgroundColor: "rgba(75,192,192,1)",
+  //       borderColor: "rgba(0,0,0,1)",
+  //       borderWidth: 2,
+  //       data: workoutTotalTimeWorkingOut,
+  //     },
+  //   ],
+  // };
+
   console.log(chartData);
-
-  // console.log("THIS IS DATA CHART", chartData.datasets[0].data);
-  // console.log("THIS IS LABELS CHART", chartData.labels);
 
   return (
     <div>
       <h2>Welcome to your dashboard!</h2>
-      {!userWorkouts.length ? <Loading /> : <Charts chartData={chartData} />}
+      {userWorkouts.length === 0 ? (
+        <Loading />
+      ) : (
+        <Charts chartData={chartData} />
+      )}
     </div>
   );
 }
