@@ -24,9 +24,9 @@ function App() {
         <Route
           path="/profile"
           element={
-            <IsAnon>
+            <IsPrivate>
               <ProfilePage />
-            </IsAnon>
+            </IsPrivate>
           }
         />
 
@@ -58,9 +58,9 @@ function App() {
         <Route
           path="/bmi"
           element={
-            <IsAnon>
+            <IsPrivate>
               <BmiPage />
-            </IsAnon>
+            </IsPrivate>
           }
         />
         <Route

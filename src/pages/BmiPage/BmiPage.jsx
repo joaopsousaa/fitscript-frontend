@@ -78,30 +78,6 @@ function BmiPage() {
 
         <br />
 
-        {/* <label>
-          Sex:
-          <label>
-            M
-            <input
-              type="radio"
-              name="sex"
-              onChange={handleRadioButton}
-              selected="m"
-            ></input>
-          </label>
-          <label>
-            F
-            <input
-              type="radio"
-              name="sex"
-              onChange={handleRadioButton}
-              selected="f"
-            ></input>
-          </label>
-        </label> */}
-
-        <br />
-
         <label>
           Age:
           <input

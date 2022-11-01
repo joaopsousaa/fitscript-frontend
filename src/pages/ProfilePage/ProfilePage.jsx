@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import profileService from "../../services/workout.service";
-import { AuthProviderWrapper } from "../../context/auth.context";
+//import { AuthProviderWrapper } from "../../context/auth.context";
+//import { AuthContext } from "../../context/auth.context";
 
 function ProfilePage() {
   // const { user, authenticate } = AuthProviderWrapper();
-  const [userData, setUserData] = useState();
+  const [userData, setUserData] = useState({
+    email: "",
+    gender: "",
+    smoking: "",
+    alcohol: "",
+    birthdate: "",
+    name: "",
+  });
 
   function handleChange(event) {
     const { value, name } = event.target;
@@ -40,20 +48,24 @@ function ProfilePage() {
       <h1>Profile page</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Username:
-          <input type="text" name="username" onChange={handleChange} />
-        </label>
-        <br />
-
-        <label>
           Name:
-          <input type="text" name="rname" onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            onChange={handleChange}
+            value={userData.name}
+          />
         </label>
         <br />
 
         <label>
           Email:
-          <input type="email" name="username" onChange={handleChange} />
+          <input
+            type="email"
+            name="email"
+            onChange={handleChange}
+            value={userData.email}
+          />
         </label>
         <br />
 
