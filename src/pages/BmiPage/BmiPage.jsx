@@ -6,7 +6,6 @@ function BmiPage() {
   const [form, setForm] = useState({
     weight: "",
     height: "",
-    sex: "",
     age: "",
   });
 
