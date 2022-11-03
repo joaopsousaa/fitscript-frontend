@@ -4,6 +4,7 @@ import { Chart as ChartJS } from "chart.js/auto";
 // import { useState } from "react";
 
 function TotalWeightLifted({ chartData }) {
+  console.log(ChartJS);
   return (
     <div>
       <Line
