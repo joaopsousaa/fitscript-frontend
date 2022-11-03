@@ -29,7 +29,7 @@ function Goal({ title, deadline }) {
     goalService
       .createOne(requestBody)
       .then((response) => {
-        console.log(response.data);
+        console.log("THIS IS DATA GOAL", response.data);
         const { data } = response.data;
         setGoal({ ...data });
         console.log("This is GOLADATA", goal);
@@ -51,7 +51,7 @@ function Goal({ title, deadline }) {
             type="radio"
             name="title"
             onChange={handleRadioButton}
-            selected={goal.title}
+            selected="lose weight"
           ></input>
         </label>
         <label>
@@ -60,7 +60,7 @@ function Goal({ title, deadline }) {
             type="radio"
             name="title"
             onChange={handleRadioButton}
-            selected={goal.title}
+            selected="muscle gain"
           ></input>
         </label>
 

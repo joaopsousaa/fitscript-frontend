@@ -5,8 +5,26 @@ import Loading from "../../components/Loading/Loading";
 import { useContext } from "react";
 import { UserWorkoutsContext } from "../../context/userWorkouts.context";
 import { format } from "date-fns";
+import { useState } from "react";
 
 function DashboardPage() {
+  const [initialChartDate, setInicialChartDate] = useState(Date);
+  const [endChartDate, setEndChartDate] = useState(Date);
+
+  function handleInitialDateChange(evt) {
+    const { value } = evt.target;
+    setInicialChartDate(value);
+  }
+
+  function handleEndDateChange(evt) {
+    const { value } = evt.target;
+    setEndChartDate(value);
+  }
+
+  // function filterDates(){
+  //   const workoutDatesFiltered =
+  // }
+
   const userWorkouts = useContext(UserWorkoutsContext);
   console.log("List of user workouts:", userWorkouts);
 
@@ -71,6 +89,20 @@ function DashboardPage() {
         <>
           <Charts chartData={chartData} />
           <TotalWeightLifted chartData={totalWeightLiftedChartData} />
+          Start:{" "}
+          <input
+            type="date"
+            min="2022-01-01"
+            value={initialChartDate}
+            onChange={handleInitialDateChange}
+          ></input>
+          End:{" "}
+          <input
+            type="date"
+            min="2022-01-01"
+            value={endChartDate}
+            onChange={handleEndDateChange}
+          ></input>
         </>
       )}
     </div>
