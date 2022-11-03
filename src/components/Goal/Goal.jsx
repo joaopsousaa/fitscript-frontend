@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Goal.css";
+import goalService from "../../services/goal.service";
 
 function Goal({ title, deadline }) {
   const [goal, setGoal] = useState({
@@ -22,14 +23,28 @@ function Goal({ title, deadline }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    console.log(evt);
+    //console.log(evt);
+
+    const requestBody = { ...goal };
+    goalService
+      .createOne(requestBody)
+      .then((response) => {
+        console.log(response.data);
+        const { data } = response.data;
+        setGoal({ ...data });
+        console.log("This is GOLADATA", goal);
+      })
+      .catch((error) => {
+        // console.log(error);
+      });
   }
 
   return (
     <div>
       <h1> My Fitness Goal: </h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Title</label>
+        <br />
         <label>
           Lose weight
           <input

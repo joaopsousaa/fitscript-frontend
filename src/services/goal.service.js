@@ -19,13 +19,13 @@ class GoalService {
     });
   }
 
-  // POST /workout
+  // POST /goal
   createOne = async (requestBody) => {
     return this.api.post("/goal", requestBody);
   };
 
-  //GET List of Exercises From API
-  getAllExercises = async () => {
+  //GET all goals
+  getAllgoals = async () => {
     return this.api.get("/goal");
   };
 }

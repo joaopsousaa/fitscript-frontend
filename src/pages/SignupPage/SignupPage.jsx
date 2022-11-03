@@ -38,7 +38,7 @@ function SignupPage() {
       .then((response) => {
         console.log(response.data);
         // If the POST request is successful redirect to the login page
-        navigate("/login");
+        navigate("/goal");
       })
       .catch((error) => {
         // If the request resolves with an error, set the error message in the state

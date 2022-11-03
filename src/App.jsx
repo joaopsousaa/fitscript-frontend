@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import WorkoutPage from "./pages/WorkoutPage/WorkoutPage";
 import BmiPage from "./pages/BmiPage/BmiPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import Goal from "./components/Goal/Goal";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -68,6 +69,15 @@ function App() {
           element={
             <IsPrivate>
               <WorkoutPage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
+          path="/goal"
+          element={
+            <IsPrivate>
+              <Goal />
             </IsPrivate>
           }
         />

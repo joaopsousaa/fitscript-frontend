@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import profileService from "../../services/workout.service";
 // import { AuthContext } from "../../context/auth.context";
+//import Goal from "../../components/Goal/Goal";
 
 function ProfilePage() {
   // const { user, authenticate } = AuthProviderWrapper();

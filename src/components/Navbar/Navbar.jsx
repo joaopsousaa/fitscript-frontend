@@ -38,6 +38,10 @@ function Navbar() {
             {" "}
             <button>Profile</button>{" "}
           </Link>
+          <Link to="/goal">
+            {" "}
+            <button>Goal</button>{" "}
+          </Link>
 
           <span>{user && user.name}</span>
         </>

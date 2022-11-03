@@ -3,6 +3,7 @@ import Charts from "../../components/Charts/Charts";
 import Loading from "../../components/Loading/Loading";
 import { useContext } from "react";
 import { UserWorkoutsContext } from "../../context/userWorkouts.context";
+import Goal from "../../components/Goal/Goal";
 
 function DashboardPage() {
   const userWorkouts = useContext(UserWorkoutsContext);
