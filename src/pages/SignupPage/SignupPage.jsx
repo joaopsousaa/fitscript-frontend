@@ -2,6 +2,7 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
+// import { AuthContext } from "../../context/auth.context";
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -35,8 +36,9 @@ function SignupPage() {
     authService
       .signup(requestBody)
       .then((response) => {
+        console.log(response.data);
         // If the POST request is successful redirect to the login page
-        navigate("/login");
+        navigate("/goal");
       })
       .catch((error) => {
         // If the request resolves with an error, set the error message in the state

@@ -5,7 +5,10 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import WorkoutPage from "./pages/WorkoutPage/WorkoutPage";
+import BmiPage from "./pages/BmiPage/BmiPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import Goal from "./components/Goal/Goal";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -29,6 +32,15 @@ function App() {
         />
 
         <Route
+          path="/dashboard"
+          element={
+            <IsPrivate>
+              <DashboardPage />
+            </IsPrivate>
+          }
+        />
+
+        <Route
           path="/signup"
           element={
             <IsAnon>
@@ -44,13 +56,29 @@ function App() {
             </IsAnon>
           }
         />
+        <Route
+          path="/bmi"
+          element={
+            <IsPrivate>
+              <BmiPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/workout"
+          element={
+            <IsPrivate>
+              <WorkoutPage />
+            </IsPrivate>
+          }
+        />
 
         <Route
-          path="/dashboard"
+          path="/goal"
           element={
-            <IsAnon>
-              <DashboardPage />
-            </IsAnon>
+            <IsPrivate>
+              <Goal />
+            </IsPrivate>
           }
         />
       </Routes>

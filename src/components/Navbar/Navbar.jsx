@@ -22,6 +22,26 @@ function Navbar() {
             <button>Profile</button>
             {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
           </Link>
+          <Link to="/workout">
+            {" "}
+            <button>Workout</button>{" "}
+          </Link>
+          <Link to="/dashboard">
+            {" "}
+            <button>Dashboard</button>{" "}
+          </Link>
+          <Link to="/bmi">
+            {" "}
+            <button>BMI</button>{" "}
+          </Link>
+          <Link to="/profile">
+            {" "}
+            <button>Profile</button>{" "}
+          </Link>
+          <Link to="/goal">
+            {" "}
+            <button>Goal</button>{" "}
+          </Link>
 
           <span>{user && user.name}</span>
         </>
@@ -43,6 +63,26 @@ function Navbar() {
             {" "}
             <button>Login</button>{" "}
           </Link>
+          <Link to="/workout">
+            {" "}
+            <button>Workout</button>{" "}
+          </Link>
+          <Link to="/dashboard">
+            {" "}
+            <button>Dashboard</button>{" "}
+          </Link>
+          <Link to="/bmi">
+            {" "}
+            <button>BMI</button>{" "}
+          </Link>
+          <Link to="/profile">
+            {" "}
+            <button>Profile</button>{" "}
+          </Link>
+          {/* <Link to="/logout">
+            {" "}
+            <button>Logout</button>{" "}
+          </Link> */}
         </>
       )}
     </nav>
