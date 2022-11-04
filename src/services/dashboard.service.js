@@ -20,7 +20,7 @@ class DashboardService {
   }
 
   getAllUserWorkouts = async () => {
-    return this.api.get("/");
+    return this.api.get("/dashboard");
   };
 }
 
