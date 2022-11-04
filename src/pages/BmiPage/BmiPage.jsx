@@ -1,5 +1,5 @@
 import "./BmiPage.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import bmiService from "../../services/bmi.service";
 
 function BmiPage() {
@@ -41,14 +41,6 @@ function BmiPage() {
         console.log(error);
       });
   }
-
-  // function handleRadioButton(evt) {
-  //   const { selected } = evt.target;
-  //   if (selected) {
-  //     setForm({ ...form, sex: selected });
-  //     return;
-  //   }
-  // }
 
   return (
     <div>

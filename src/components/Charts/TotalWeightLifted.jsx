@@ -1,14 +1,33 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+<<<<<<< HEAD
 import { Chart } from "chart.js";
 // import { useState } from "react";
 
 function TotalWeightLifted({ chartData }) {
+=======
+import Chart from "chart.js/auto";
+
+function TotalWeightLifted({ workoutDates, weight }) {
+>>>>>>> dev
   console.log(Chart);
   return (
     <div>
       <Line
-        data={chartData}
+        data={{
+          labels: workoutDates,
+
+          datasets: [
+            {
+              label: "Total Weight Lifted Per Workout (kg)",
+              lineTension: 0.5,
+              backgroundColor: "rgba(75,192,192,1)",
+              borderColor: "rgba(0,0,0,1)",
+              borderWidth: 2,
+              data: weight,
+            },
+          ],
+        }}
         options={{
           title: {
             display: true,

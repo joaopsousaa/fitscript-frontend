@@ -2,29 +2,11 @@ import "./DashboardPage.css";
 import Charts from "../../components/Charts/Charts";
 import TotalWeightLifted from "../../components/Charts/TotalWeightLifted";
 import Loading from "../../components/Loading/Loading";
-import { useContext } from "react";
 import { UserWorkoutsContext } from "../../context/userWorkouts.context";
 import { format } from "date-fns";
-import { useState } from "react";
+import { useState, useRef, useContext } from "react";
 
 function DashboardPage() {
-  const [initialChartDate, setInicialChartDate] = useState(Date);
-  const [endChartDate, setEndChartDate] = useState(Date);
-
-  function handleInitialDateChange(evt) {
-    const { value } = evt.target;
-    setInicialChartDate(value);
-  }
-
-  function handleEndDateChange(evt) {
-    const { value } = evt.target;
-    setEndChartDate(value);
-  }
-
-  // function filterDates(){
-  //   const workoutDatesFiltered =
-  // }
-
   const userWorkouts = useContext(UserWorkoutsContext);
   console.log("List of user workouts:", userWorkouts);
 
@@ -48,37 +30,45 @@ function DashboardPage() {
 
   console.log("this is totalweight", totalWeightLiftedPerWorkout);
 
-  const chartData = {
-    labels: workoutDate,
+  const [workoutDates, setWorkoutDates] = useState(workoutDate);
+  const [workoutTime, setWorkoutTime] = useState(workoutTotalTimeWorkingOut);
+  const [workoutWeightLiftedPerWorkout, setworkoutWeightLiftedPerWorkout] =
+    useState(totalWeightLiftedPerWorkout);
+  console.log("THIS IS WORKOUT DATE", workoutDate[0]);
 
-    datasets: [
-      {
-        label: "Time Working Out",
-        lineTension: 0.5,
-        backgroundColor: "rgba(75,192,192,1)",
-        borderColor: "rgba(0,0,0,1)",
-        borderWidth: 2,
-        data: workoutTotalTimeWorkingOut,
-      },
-    ],
-  };
+  const inputRef1 = useRef();
+  const inputRef2 = useRef();
 
-  const totalWeightLiftedChartData = {
-    labels: workoutDate,
+  function filterDates() {
+    const workoutDatesCopy = [...workoutDate];
+    const workoutTimeCopy = [...workoutTotalTimeWorkingOut];
+    const workoutWeightLiftedCopy = [...totalWeightLiftedPerWorkout];
 
-    datasets: [
-      {
-        label: "Total Weight Lifted Per Workout (kg)",
-        lineTension: 0.5,
-        backgroundColor: "rgba(75,192,192,1)",
-        borderColor: "rgba(0,0,0,1)",
-        borderWidth: 2,
-        data: totalWeightLiftedPerWorkout,
-      },
-    ],
-  };
+    let startDate = format(new Date(inputRef1.current.value), "dd/MM/yyyy");
+    let endDate = format(new Date(inputRef2.current.value), "dd/MM/yyyy");
+    console.log("This is Start Date", startDate);
+    const indexStartDate = workoutDatesCopy.indexOf(startDate);
+    const indexEndDate = workoutDatesCopy.indexOf(endDate);
 
-  console.log(chartData);
+    console.log(indexEndDate);
+    //slice the array
+    const filterWorkoutDate = workoutDatesCopy.slice(
+      indexStartDate,
+      indexEndDate + 1
+    );
+    const filterWorkoutTime = workoutTimeCopy.slice(
+      indexStartDate,
+      indexEndDate + 1
+    );
+    const filterWorkoutWeightLifted = workoutWeightLiftedCopy.slice(
+      indexStartDate,
+      indexEndDate + 1
+    );
+
+    setWorkoutDates(filterWorkoutDate);
+    setWorkoutTime(filterWorkoutTime);
+    setworkoutWeightLiftedPerWorkout(filterWorkoutWeightLifted);
+  }
 
   return (
     <div>
@@ -87,22 +77,28 @@ function DashboardPage() {
         <Loading />
       ) : (
         <>
-          <Charts chartData={chartData} />
-          <TotalWeightLifted chartData={totalWeightLiftedChartData} />
+          <TotalWeightLifted
+            workoutDates={workoutDates}
+            weight={workoutWeightLiftedPerWorkout}
+          />
+          <Charts workoutDates={workoutDates} workoutTime={workoutTime} />
           Start:{" "}
           <input
             type="date"
-            min="2022-01-01"
-            value={initialChartDate}
-            onChange={handleInitialDateChange}
+            // min={workoutDates[0]}
+            // max={workoutDates[workoutDates.length - 1]}
+            ref={inputRef1}
           ></input>
           End:{" "}
           <input
             type="date"
-            min="2022-01-01"
-            value={endChartDate}
-            onChange={handleEndDateChange}
+            // min="2022-10-30"
+            // max={workoutDates[workoutDates.length - 1]}
+            ref={inputRef2}
           ></input>
+          <button type="button" onClick={filterDates}>
+            Filter
+          </button>
         </>
       )}
     </div>
