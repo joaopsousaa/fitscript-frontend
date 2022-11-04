@@ -1,14 +1,8 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-<<<<<<< HEAD
-import { Chart } from "chart.js";
-
-function Charts({ chartData }) {
-=======
 import Chart from "chart.js/auto";
 
 function Charts({ workoutDates, workoutTime }) {
->>>>>>> dev
   console.log(Chart);
   return (
     <div>
