@@ -19,14 +19,14 @@ class ProfileService {
     });
   }
 
-  // POST /workout
+  // POST /profile
   createOne = async (requestBody) => {
     return this.api.post("/profile", requestBody);
   };
 
-  //GET List of Exercises From API
-  getAllExercises = async () => {
-    return this.api.get("/profile");
+  // POST /profile delete
+  deleteOne = async () => {
+    return this.api.post("/profile/delete");
   };
 }
 

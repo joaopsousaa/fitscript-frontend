@@ -47,11 +47,11 @@ function Navbar() {
         </>
       )}
 
-      {isLoggedIn && (
+      {/* {isLoggedIn && (
         <>
           <button>Dashboard</button>
         </>
-      )}
+      )} */}
 
       {!isLoggedIn && (
         <>

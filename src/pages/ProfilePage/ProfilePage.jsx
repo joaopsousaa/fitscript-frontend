@@ -51,6 +51,21 @@ function ProfilePage() {
       });
   }
 
+  function handleDelete(event) {
+    event.preventDefault();
+
+    const requestBody = { ...userData };
+
+    profileService
+      .deleteOne(requestBody)
+      .then((response) => {
+        console.log("RESPONSE:", response);
+      })
+      .catch((error) => {
+        console.log("ERROR:", error);
+      });
+  }
+
   return (
     <div>
       <h1>Profile page</h1>
@@ -157,6 +172,10 @@ function ProfilePage() {
         <br /> */}
 
         <button type="submit"> Update </button>
+        <br />
+      </form>
+      <form onSubmit={handleDelete}>
+        <button type="submit"> Delete </button>
       </form>
     </div>
   );
