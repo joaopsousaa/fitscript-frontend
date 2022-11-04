@@ -1,15 +1,8 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-<<<<<<< HEAD
-import { Chart } from "chart.js";
-// import { useState } from "react";
-
-function TotalWeightLifted({ chartData }) {
-=======
 import Chart from "chart.js/auto";
 
 function TotalWeightLifted({ workoutDates, weight }) {
->>>>>>> dev
   console.log(Chart);
   return (
     <div>
