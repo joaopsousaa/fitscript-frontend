@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "./DashboardPage.css";
 import Charts from "../../components/Charts/Charts";
 import Loading from "../../components/Loading/Loading";
@@ -79,6 +80,15 @@ function DashboardPage() {
       ) : (
         <Charts chartData={chartData} />
       )}
+=======
+import { Axios } from "axios";
+import React, { useEffect, useState } from "react";
+
+function DashboardPage() {
+  return (
+    <div>
+      <h1> Dashboard </h1>
+>>>>>>> main
     </div>
   );
 }

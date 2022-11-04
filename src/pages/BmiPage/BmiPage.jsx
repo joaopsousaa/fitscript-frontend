@@ -42,14 +42,6 @@ function BmiPage() {
       });
   }
 
-  // function handleRadioButton(evt) {
-  //   const { selected } = evt.target;
-  //   if (selected) {
-  //     setForm({ ...form, sex: selected });
-  //     return;
-  //   }
-  // }
-
   return (
     <div>
       <h1> Calculate your BMI </h1>
