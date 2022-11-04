@@ -59,14 +59,6 @@ function WorkoutPage() {
     setArrayOfSets({ ...arrayOfSets, [name]: value });
   }
 
-  // function handleRadioButton(evt) {
-  //   const { selected } = evt.target;
-  //   if (selected) {
-  //     setForm({ ...form, type: selected });
-  //     return;
-  //   }
-  // }
-
   function addSet() {
     form.sets.push(arrayOfSets);
     setArrayOfSets({ numberOfReps: 0, weightLifted: 0 });
@@ -178,6 +170,7 @@ function WorkoutPage() {
           </button>
         )}
       </form>
+
       <ExerciseCard workout={workout} />
     </div>
   );

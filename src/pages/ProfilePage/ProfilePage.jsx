@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import profileService from "../../services/workout.service";
+import profileService from "../../services/profile.service";
 // import { AuthContext } from "../../context/auth.context";
 //import Goal from "../../components/Goal/Goal";
 
@@ -8,10 +8,12 @@ function ProfilePage() {
   const [userData, setUserData] = useState({
     email: "",
     gender: "",
-    smoking: "",
-    alcohol: "",
+    // smoking: "",
+    // alcohol: "",
     birthdate: "",
     name: "",
+    password: "",
+    confirmPassword: "",
   });
 
   function handleChange(event) {
@@ -21,11 +23,16 @@ function ProfilePage() {
 
   function handleRadioButton(evt) {
     const { selected } = evt.target;
-    if (selected) {
-      setUserData({ ...userData, gender: selected });
-      return;
-    }
+    console.log("SELECTED", selected);
+
+    setUserData({
+      ...userData,
+      gender: selected,
+      // smoking: selectedTwo,
+      // alcohol: selectedThree,
+    });
   }
+  console.log("THIS IS USER DATA", userData);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -72,7 +79,17 @@ function ProfilePage() {
 
         <label>
           Password:
-          <input type="text" name="password" onChange={handleChange} />
+          <input type="password" name="password" onChange={handleChange} />
+        </label>
+        <br />
+
+        <label>
+          Confirm Password:
+          <input
+            type="password"
+            name="confirmPassword"
+            onChange={handleChange}
+          />
         </label>
         <br />
 
@@ -101,7 +118,7 @@ function ProfilePage() {
         </label>
         <br />
 
-        <label>
+        {/* <label>
           Smoking:
           <label>Yes</label>
           <input
@@ -137,7 +154,7 @@ function ProfilePage() {
             selected="no"
           />
         </label>
-        <br />
+        <br /> */}
 
         <button type="submit"> Update </button>
       </form>

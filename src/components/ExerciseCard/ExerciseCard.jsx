@@ -23,7 +23,6 @@ function ExerciseCard({ workout }) {
           </>
         );
       })}
-      {/* <h3>Workout Type: {workout.type}</h3> */}
     </div>
   );
 }
