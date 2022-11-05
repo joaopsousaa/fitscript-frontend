@@ -2,6 +2,9 @@ import "./BmiPage.css";
 import React, { useState } from "react";
 import bmiService from "../../services/bmi.service";
 
+// import Button from "react-bootstrap/Button";
+// import Form from "react-bootstrap/Form";
+
 function BmiPage() {
   const [form, setForm] = useState({
     weight: "",
@@ -45,7 +48,7 @@ function BmiPage() {
   return (
     <div>
       <h1> Calculate your BMI </h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={"bmi-form"}>
         <label>
           Weight:
           <input
@@ -82,13 +85,17 @@ function BmiPage() {
 
         <br />
 
-        <button type="submit">Calculate</button>
+        <button className={"button-bmi button1"} type="submit">
+          Calculate
+        </button>
       </form>
       {bmiData.bmi !== "" && (
         <>
-          <h2>Your BMI: {bmiData.bmi}</h2>
-          <h2>Health: {bmiData.health}</h2>
-          <h2>Healthy BMI Range: {bmiData.healthy_bmi_range}</h2>
+          <div className={"bmi-result"}>
+            <h2>Your BMI: {bmiData.bmi}</h2>
+            <h2>Health: {bmiData.health}</h2>
+            <h2>Healthy BMI Range: {bmiData.healthy_bmi_range}</h2>
+          </div>
         </>
       )}
     </div>
