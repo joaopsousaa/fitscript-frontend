@@ -53,13 +53,29 @@ function App() {
             </IsAnon>
           }
         />
+        <Route
+          path="/bmi"
+          element={
+            <IsPrivate>
+              <BmiPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/workout"
+          element={
+            <IsPrivate>
+              <WorkoutPage />
+            </IsPrivate>
+          }
+        />
 
         <Route
-          path="/dashboard"
+          path="/goal"
           element={
-            <IsAnon>
-              <DashboardPage />
-            </IsAnon>
+            <IsPrivate>
+              <Goal />
+            </IsPrivate>
           }
         />
       </Routes>
