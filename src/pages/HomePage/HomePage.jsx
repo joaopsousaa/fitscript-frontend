@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <div>
       <div>
-        <h2>About us</h2>
+        <h2 style={{ fontSize: "24px" }}>About us</h2>
         <p>
           We all know it's difficult to lose weight and build muscle. However,
           if you become a member of fitscript.com, you'll have access to the
