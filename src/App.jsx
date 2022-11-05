@@ -6,9 +6,6 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
-import BmiPage from "./pages/DashboardPage/DashboardPage";
-import WorkoutPage from "./pages/DashboardPage/DashboardPage";
-import Goal from "./components/Goal/Goal";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -56,29 +53,13 @@ function App() {
             </IsAnon>
           }
         />
-        <Route
-          path="/bmi"
-          element={
-            <IsPrivate>
-              <BmiPage />
-            </IsPrivate>
-          }
-        />
-        <Route
-          path="/workout"
-          element={
-            <IsPrivate>
-              <WorkoutPage />
-            </IsPrivate>
-          }
-        />
 
         <Route
-          path="/goal"
+          path="/dashboard"
           element={
-            <IsPrivate>
-              <Goal />
-            </IsPrivate>
+            <IsAnon>
+              <DashboardPage />
+            </IsAnon>
           }
         />
       </Routes>
