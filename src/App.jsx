@@ -6,8 +6,8 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
-import BmiPage from "./pages/DashboardPage/DashboardPage";
-import WorkoutPage from "./pages/DashboardPage/DashboardPage";
+import BmiPage from "./pages/BmiPage/BmiPage";
+import WorkoutPage from "./pages/WorkoutPage/WorkoutPage";
 import Goal from "./components/Goal/Goal";
 
 import Navbar from "./components/Navbar/Navbar";
