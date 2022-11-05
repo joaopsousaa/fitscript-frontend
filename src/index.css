@@ -4,8 +4,11 @@
   background-color: #cad2c5;
 }
 
-* h1 {
-  font-size: 5.5rem;
+:root {
+  --navbar-bg: #333;
+
+  --primary-clr: red;
+  --secondary-clr: lightblue;
 }
 
 /* 
