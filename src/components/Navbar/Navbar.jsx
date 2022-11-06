@@ -1,88 +1,124 @@
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import styled from "styled-components";
+
+const Button = styled.button`
+  background-color: #52796f;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 38px;
+  line-height: 38px;
+  width: 100px;
+  border-radius: 19px;
+`;
 
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
+  const navLinkStyle = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      textDecoration: isActive ? "underline" : "none",
+      color: "white",
+    };
+  };
+
+  const ButtonComponent = () => {
+    return <Button onClick={logOutUser}>Logout</Button>;
+  };
+
   return (
     <nav>
-      <Link to="/">
-        <button>Home</button>
-      </Link>
-
+      <div className="logo-container">
+        <NavLink to="/">
+          <img src="/fitscript-logo1.png" alt="logo" className="logo" />
+        </NavLink>
+      </div>
       {isLoggedIn && (
         <>
-          <button onClick={logOutUser}>Logout</button>
-
-          <Link to="/profile">
-            <button>Profile</button>
-            {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
-          </Link>
-          <Link to="/workout">
-            {" "}
-            <button>Workout</button>{" "}
-          </Link>
-          <Link to="/dashboard">
-            {" "}
-            <button>Dashboard</button>{" "}
-          </Link>
-          <Link to="/bmi">
-            {" "}
-            <button>BMI</button>{" "}
-          </Link>
-          <Link to="/profile">
-            {" "}
-            <button>Profile</button>{" "}
-          </Link>
-          <Link to="/goal">
-            {" "}
-            <button>Goal</button>{" "}
-          </Link>
-
-          <span>{user && user.name}</span>
+          <ul>
+            <span className="greet-user">Welcome {user.name}</span>
+            <li>
+              <ButtonComponent />
+            </li>
+            <li>
+              <NavLink style={navLinkStyle} to="/workout">
+                {" "}
+                Workout
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/dashboard">
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/bmi">
+                BMI
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/profile">
+                Profile
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/goal">
+                Goal
+              </NavLink>
+            </li>
+          </ul>
         </>
       )}
 
-      {/* {isLoggedIn && (
-        <>
-          <button>Dashboard</button>
-        </>
-      )} */}
-
       {!isLoggedIn && (
         <>
-          <Link to="/signup">
-            {" "}
-            <button>Sign Up</button>{" "}
-          </Link>
-          <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
-          <Link to="/workout">
-            {" "}
-            <button>Workout</button>{" "}
-          </Link>
-          <Link to="/dashboard">
-            {" "}
-            <button>Dashboard</button>{" "}
-          </Link>
-          <Link to="/bmi">
-            {" "}
-            <button>BMI</button>{" "}
-          </Link>
-          <Link to="/profile">
-            {" "}
-            <button>Profile</button>{" "}
-          </Link>
-          {/* <Link to="/logout">
-            {" "}
-            <button>Logout</button>{" "}
-          </Link> */}
+          <ul>
+            <li>
+              <NavLink style={navLinkStyle} to="/signup">
+                Sign Up
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/login">
+                Login
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/workout">
+                Workout
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/dashboard">
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyle} to="/bmi">
+                {" "}
+                BMI{" "}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyle} to="/profile">
+                Profile
+              </NavLink>
+            </li>
+          </ul>
         </>
       )}
     </nav>

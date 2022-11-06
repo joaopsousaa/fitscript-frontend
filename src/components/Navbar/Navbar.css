@@ -1,0 +1,40 @@
+nav {
+  background-color: var(--third-clr);
+  height: 7vh;
+}
+
+.logo {
+  width: 10%;
+  float: left;
+}
+.logo-container {
+  margin-left: 5%;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+ul:nth-last-child(1) {
+  margin-right: 15%;
+}
+
+li {
+  padding: 14px 16px;
+}
+
+/* li a:focus, */
+li:nth-child(n + 3):hover {
+  margin: 0;
+  padding: 14px 16px;
+  background-color: #111;
+}
+
+.greet-user {
+  display: inline;
+  margin-right: 15px;
+}

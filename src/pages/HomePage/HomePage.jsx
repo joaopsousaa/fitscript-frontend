@@ -5,7 +5,7 @@ function HomePage() {
   return (
     <div>
       <div>
-        <h2>About us</h2>
+        <h2 style={{ fontSize: "24px" }}>About us</h2>
         <p>
           We all know it's difficult to lose weight and build muscle. However,
           if you become a member of fitscript.com, you'll have access to the
@@ -44,14 +44,14 @@ function HomePage() {
 
       <div>
         <h2>With a FREE membership you get:</h2>
-        <p>
-          <ol>
-            <li>✅ Your own personal workout database</li>
-            <li>✅ A searchable exercise database of over 10,000 items</li>
-            <li>✅ Create and monitor activity reports</li>
-            <li>✅ Calculate your body mass index</li>
-          </ol>
-        </p>
+
+        <ul>
+          <li>✅ Your own personal workout database</li>
+          <li>✅ A searchable exercise database of over 10,000 items</li>
+          <li>✅ Create and monitor activity reports</li>
+          <li>✅ Calculate your body mass index</li>
+        </ul>
+
         <div>
           <h2>Don't hesitate! Be fit and write your own fitness script!</h2>
         </div>

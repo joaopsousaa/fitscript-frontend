@@ -1,3 +1,21 @@
-body {
+* {
   margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+:root {
+  --navbar-bg: #333;
+
+  --first-clr: #cad2c5;
+  --second-clr: #84a98c;
+  --third-clr: #52796f;
+  --fourth-clr: #3992b1;
+  --fiveth-clr: #4fbed3;
+}
+
+/* 
+CAD2C5
+84A98C
+52796F
+3992B1
+4FBED3 */

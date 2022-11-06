@@ -8,9 +8,9 @@ import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import BmiPage from "./pages/BmiPage/BmiPage";
 import WorkoutPage from "./pages/WorkoutPage/WorkoutPage";
 import Goal from "./components/Goal/Goal";
-import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
