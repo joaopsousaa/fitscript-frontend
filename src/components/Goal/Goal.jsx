@@ -42,41 +42,55 @@ function Goal({ title, deadline }) {
   return (
     <div>
       <h1> My Fitness Goal: </h1>
-      <form onSubmit={handleSubmit}>
-        <label>Title</label>
+      <form onSubmit={handleSubmit} className={"goal-form"}>
+        {/* <label>Title</label> */}
         <br />
-        <label>
-          Lose weight
-          <input
-            type="radio"
-            name="title"
-            onChange={handleRadioButton}
-            selected="lose weight"
-          ></input>
-        </label>
-        <label>
-          Muscle gain
-          <input
-            type="radio"
-            name="title"
-            onChange={handleRadioButton}
-            selected="muscle gain"
-          ></input>
-        </label>
+        <div className={"goal-form-card"}>
+          <div>
+            <img
+              src="images/morgan-petroski-rx6wXNsXUOE-unsplash.jpg"
+              style={{ height: "425px", width: "400px" }}
+            ></img>
+            <p>Lose weight</p>
+            <input
+              type="radio"
+              name="title"
+              onChange={handleRadioButton}
+              selected="lose weight"
+            ></input>
+          </div>
+
+          <div>
+            <img
+              src="images/anastase-maragos-9dzWZQWZMdE-unsplash.jpg"
+              style={{ height: "425px", width: "400px" }}
+            ></img>
+            <p>Gain muscle</p>
+            <input
+              type="radio"
+              name="title"
+              onChange={handleRadioButton}
+              selected="muscle gain"
+            ></input>
+          </div>
+        </div>
 
         <br />
 
-        <label>
-          Deadline
-          <input
-            type="date"
-            name="deadline"
-            onChange={handleChange}
-            value={goal.deadline}
-          ></input>
-        </label>
+        <input
+          type="date"
+          name="deadline"
+          onChange={handleChange}
+          value={goal.deadline}
+        ></input>
+        <p>Deadline</p>
 
-        <button type="submit"> Submit</button>
+        <br />
+
+        <button className={"button-goal button1"} type="submit">
+          {" "}
+          Submit
+        </button>
       </form>
     </div>
   );
