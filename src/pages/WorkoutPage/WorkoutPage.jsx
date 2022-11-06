@@ -62,6 +62,7 @@ function WorkoutPage() {
   function addSet() {
     form.sets.push(arrayOfSets);
     setArrayOfSets({ numberOfReps: 0, weightLifted: 0 });
+    alert("Set added");
   }
 
   function addExercise() {

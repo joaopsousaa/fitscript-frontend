@@ -1,14 +1,16 @@
 * {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #cad2c5;
 }
 
 :root {
   --navbar-bg: #333;
 
-  --primary-clr: red;
-  --secondary-clr: lightblue;
+  --first-clr: #cad2c5;
+  --second-clr: #84a98c;
+  --third-clr: #52796f;
+  --fourth-clr: #3992b1;
+  --fiveth-clr: #4fbed3;
 }
 
 /* 

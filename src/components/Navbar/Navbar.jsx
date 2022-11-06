@@ -1,61 +1,124 @@
-import styles from "./Navbar.module.css";
-import { Link } from "react-router-dom";
+import "./Navbar.css";
+import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import styled from "styled-components";
 
-function NavbarComp() {
-  //  Subscribe to the AuthContext to gain access to
-  //  the values from AuthContext.Provider's `value` prop
+const Button = styled.button`
+  background-color: #52796f;
+  color: white;
+  border-style: none;
+  font-size: 16px;
+  cursor: pointer;
+`;
+
+function Navbar() {
+  // Subscribe to the AuthContext to gain access to
+  // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
-  return (
-    // <Navbar bg="dark" variant="dark">
-    //   <LinkContainer to="/">
-    //     <Navbar.Brand>
-    //       <img src="/fitscript-logo.png" alt="logo" />
-    //     </Navbar.Brand>
-    //   </LinkContainer>{" "}
+  const navLinkStyle = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "bold" : "normal",
+      textDecoration: isActive ? "underline" : "none",
+      color: "white",
+    };
+  };
 
-    //     {isLoggedIn && (
-    //     <>
-    //       {" "}
-    //         <button onClick={logOutUser}>Logout</button>{" "}
-    //         <LinkContainer to="/workout">
-    //           <Nav.Link>Workout</Nav.Link>{" "}
-    //         </LinkContainer>{" "}
-    //       <LinkContainer to="/dashboard">
-    //         <Nav.Link>Dashboard</Nav.Link>{" "}
-    //       </LinkContainer>{" "}
-    //       <LinkContainer to="/bmi">
-    //         <Nav.Link>BMI</Nav.Link>{" "}
-    //       </LinkContainer>{" "}
-    //       <LinkContainer to="/profile">
-    //         <Nav.Link>Profile</Nav.Link>{" "}
-    //       </LinkContainer>{" "}
-    //       <LinkContainer to="/goal">
-    //         <Nav.Link>Goal</Nav.Link>{" "}
-    //       </LinkContainer>
-    //       <span>{user && user.name}</span>
-    //     </>
-    //     )}
-    //     {!isLoggedIn && (
-    //       <>
-    //         {" "}
-    //         <LinkContainer to="/signup">
-    //           <Nav.Link>Sign Up</Nav.Link>{" "}
-    //         </LinkContainer>{" "}
-    //         <LinkContainer to="/login">
-    //           <Nav.Link>Login</Nav.Link>{" "}
-    //         </LinkContainer>{" "}
-    //         <LinkContainer to="/bmi">
-    //           <Nav.Link>BMI</Nav.Link>{" "}
-    //         </LinkContainer>{" "}
-    //       </>
-    //     )}{" "}
-    //   </Nav>
-    // </Navbar>
-    <nav className={styles.nav}>testing</nav>
+  const ButtonComponent = () => {
+    return <Button onClick={logOutUser}>Logout</Button>;
+  };
+
+  return (
+    <nav>
+      <div className="logo-container">
+        <NavLink to="/">
+          <img src="/fitscript-logo1.png" alt="logo" className="logo" />
+        </NavLink>
+      </div>
+      {isLoggedIn && (
+        <>
+          <ul>
+            <span className="greet-user">Welcome {user.name}</span>
+            <li>
+              <ButtonComponent />
+            </li>
+            <li>
+              <NavLink style={navLinkStyle} to="/workout">
+                {" "}
+                Workout
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/dashboard">
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/bmi">
+                BMI
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/profile">
+                Profile
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/goal">
+                Goal
+              </NavLink>
+            </li>
+          </ul>
+        </>
+      )}
+
+      {!isLoggedIn && (
+        <>
+          <ul>
+            <li>
+              <NavLink style={navLinkStyle} to="/signup">
+                Sign Up
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/login">
+                Login
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/workout">
+                Workout
+              </NavLink>
+            </li>
+            <li>
+              {" "}
+              <NavLink style={navLinkStyle} to="/dashboard">
+                Dashboard
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyle} to="/bmi">
+                {" "}
+                BMI{" "}
+              </NavLink>
+            </li>
+            <li>
+              <NavLink style={navLinkStyle} to="/profile">
+                Profile
+              </NavLink>
+            </li>
+          </ul>
+        </>
+      )}
+    </nav>
   );
 }
 
-export default NavbarComp;
+export default Navbar;
