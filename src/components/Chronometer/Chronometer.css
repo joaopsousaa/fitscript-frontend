@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "digital";
+  src: url("/public/digital-7.monoitalic.ttf") format("truetype");
+}
+.chronometer-container span {
+  font-family: "digital";
+  font-size: 50px;
+  font-weight: bold;
+  margin: 2px;
+}
+.chronometer-container {
+  /* border: 1px solid #111; */
+  display: inline-block;
+  margin: 10px;
+}

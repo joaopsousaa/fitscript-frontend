@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import "./Chronometer.css";
 
 function Chronometer({ status, startWorkoutTime, time }) {
   useEffect(() => {
@@ -15,7 +16,7 @@ function Chronometer({ status, startWorkoutTime, time }) {
     return () => clearInterval(interval);
   }, [status, startWorkoutTime]);
   return (
-    <div>
+    <div className="chronometer-container">
       <span>{("0" + Math.floor((time / 3600) % 3600)).slice(-2)}:</span>
       <span>{("0" + Math.floor((time / 60) % 60)).slice(-2)}:</span>
       <span>{("0" + Math.floor(time % 60)).slice(-2)}</span>

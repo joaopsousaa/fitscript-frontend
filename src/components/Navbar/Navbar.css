@@ -1,5 +1,6 @@
 nav {
   background-color: var(--third-clr);
+  height: 7vh;
 }
 
 .logo {
@@ -13,21 +14,21 @@ nav {
 ul {
   list-style: none;
   margin: 0;
-  padding: 15px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 
-ul :nth-last-child(1) {
+ul:nth-last-child(1) {
   margin-right: 15%;
 }
 
-li a {
-  margin: 14px 16px;
+li {
+  padding: 14px 16px;
 }
+
 /* li a:focus, */
-li a:hover {
+li:nth-child(n + 3):hover {
   margin: 0;
   padding: 14px 16px;
   background-color: #111;

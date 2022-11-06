@@ -6,14 +6,12 @@ import Chronometer from "../../components/Chronometer/Chronometer";
 
 function WorkoutPage() {
   const [form, setForm] = useState({
-    // type: "",
     name: "",
     sets: [],
   });
 
   const [workout, setWorkout] = useState([
     {
-      // type: "",
       name: "",
       sets: [],
     },
@@ -93,82 +91,102 @@ function WorkoutPage() {
   }
 
   return (
-    <div>
-      <h1>WorkoutPage</h1>
+    <div className="workout-page-container">
+      <h1>Workout Log</h1>
       <form onSubmit={handleSubmit}>
         {workoutStatus === "started" ? (
           <>
-            <button
-              type="button"
-              onClick={() => {
-                setWorkoutStatus("finished");
-              }}
-            >
-              Finish Workout
-            </button>
-            <Chronometer
-              status={workoutStatus}
-              startWorkoutTime={startWorkoutTime}
-              time={time}
-            />
-            <label>
-              Exercise Name
-              <select name="name" onChange={handleChange} defaultValue={"None"}>
-                <option disabled value="None">
-                  None
-                </option>
-                {exerciseList.map((el) => {
-                  return (
-                    <option key={el.id} value={el.name}>
-                      {el.name}
-                    </option>
-                  );
-                })}
-              </select>
-            </label>
-            <br />
-            <div>
-              <label>
-                Reps
-                <input
-                  type="number"
-                  min="1"
-                  max="1000"
-                  name="numberOfReps"
-                  value={arrayOfSets.numberOfReps}
-                  onChange={handleSetChange}
-                ></input>
+            <div className="btn-workout-container">
+              <button
+                type="button"
+                onClick={() => {
+                  setWorkoutStatus("finished");
+                }}
+                className="btn-finish-workout"
+              >
+                Finish Workout
+              </button>
+              <Chronometer
+                status={workoutStatus}
+                startWorkoutTime={startWorkoutTime}
+                time={time}
+              />
+            </div>
+            <div className="form-workout-container">
+              <label className="form-workout-labels">
+                Exercise Name
+                <select
+                  name="name"
+                  onChange={handleChange}
+                  defaultValue={"None"}
+                >
+                  <option disabled value="None">
+                    None
+                  </option>
+                  {exerciseList.map((el) => {
+                    return (
+                      <option key={el.id} value={el.name}>
+                        {el.name}
+                      </option>
+                    );
+                  })}
+                </select>
               </label>
               <br />
-              <label>
-                Weight Lifted (kg)
-                <input
-                  type="number"
-                  min="1"
-                  max="1000"
-                  name="weightLifted"
-                  value={arrayOfSets.weightLifted}
-                  onChange={handleSetChange}
-                ></input>
-              </label>
-              <button type="button" onClick={addSet}>
-                Add Set
-              </button>
+              <h4 className="set-divider">Set</h4>
+              <div className="sets-container">
+                <label className="form-workout-labels">
+                  Reps
+                  <input
+                    type="number"
+                    min="1"
+                    max="1000"
+                    name="numberOfReps"
+                    value={arrayOfSets.numberOfReps}
+                    onChange={handleSetChange}
+                  ></input>
+                </label>
+                <label className="form-workout-labels">
+                  Weight Lifted (kg)
+                  <input
+                    type="number"
+                    min="1"
+                    max="1000"
+                    name="weightLifted"
+                    value={arrayOfSets.weightLifted}
+                    onChange={handleSetChange}
+                  ></input>
+                </label>
+                <button className="btn-add-set" type="button" onClick={addSet}>
+                  Add Set
+                </button>
+              </div>
+              <button type="button" onClick={addExercise}>
+                Add Exercise
+              </button>{" "}
             </div>
-            <button type="button" onClick={addExercise}>
-              Add Exercise
-            </button>{" "}
           </>
         ) : (
-          <button
-            type="submit"
-            onClick={() => {
-              setTime(0);
-              setWorkoutStatus("started");
-            }}
-          >
-            Start Workout
-          </button>
+          <>
+            <div className="btn-workout-container">
+              <button
+                type="submit"
+                onClick={() => {
+                  setTime(0);
+                  setWorkoutStatus("started");
+                  setWorkout([]);
+                }}
+                className="btn-finish-workout"
+              >
+                Start Workout
+              </button>
+              <Chronometer
+                status={workoutStatus}
+                startWorkoutTime={startWorkoutTime}
+                time={time}
+              />
+            </div>
+          </>
         )}
       </form>
 

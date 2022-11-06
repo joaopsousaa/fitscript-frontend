@@ -1,0 +1,59 @@
+.workout-page-container {
+  height: 93vh;
+}
+
+.btn-finish-workout {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  font-size: large;
+}
+
+.btn-finish-workout:hover {
+  background: #171a2b;
+  color: white;
+  transition: 0.2s all ease-in-out;
+}
+.form-workout-container {
+  display: grid;
+  justify-content: center;
+}
+.form-workout-labels {
+  display: grid;
+  justify-content: flex-start;
+}
+
+.form-workout-labels input {
+  height: 20px;
+}
+
+.sets-container {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #111;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.set-divider {
+  border-bottom: 1px solid #111;
+}
+
+.btn-add-set {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 20%;
+  border-radius: 10px;
+}
+
+.btn-add-set:hover {
+  background: #171a2b;
+  color: white;
+  transition: 0.2s all ease-in-out;
+}
+
+.btn-workout-container {
+  display: flex;
+  justify-content: center;
+  margin-right: 20%;
+  margin-bottom: 3%;
+}
