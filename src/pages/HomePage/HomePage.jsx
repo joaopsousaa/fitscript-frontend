@@ -4,24 +4,21 @@ import { Link } from "react-router-dom";
 function HomePage() {
   return (
     <div>
-      <div>
-<<<<<<< HEAD
-        <h2 style={{ fontSize: "24px" }}>About us</h2>
-=======
-        <div className={"homepage-banner"}>
-          <img
-            src="/images/training-gyms-motivational-typography-wallpaper-preview.jpg"
-            style={{ height: "410px", width: "950px" }}
-          />
-        </div>
+      <div className={"homepage-banner"}>
+        <img
+          src="/images/challenge-header.gif"
+          style={{ height: "410px", width: "950px" }}
+        />
+      </div>
+      <div className={"about-us"}>
         <h2>About us</h2>
->>>>>>> abhijeet
         <p>
           We all know it's difficult to lose weight and build muscle. However,
           if you become a member of fitscript.com, you'll have access to the
           resources you need to achieve your fitness goals. The best part is
           that there are no obligations to sign up; it is free.
         </p>
+        <br />
 
         <p>
           The advantages of tracking your physical activity have been supported
@@ -32,6 +29,7 @@ function HomePage() {
           However, without the appropriate tools, keeping track of everything
           you consume can be difficult, if not impossible.
         </p>
+        <br />
 
         <p>
           We put a lot of effort into making sure you can track your meals as
@@ -41,34 +39,69 @@ function HomePage() {
         </p>
       </div>
 
-      <div>
-        <h2>How does it work?</h2>
-        <p>
-          Otechnology is so simple to use. Over time, we all have a propensity
-          to follow the same workout. fitscript.com keeps track of your prior
-          workouts and recalls the activities you've added to your log the most
-          frequently. Accordingly, it gets simpler the more you log your
-          workouts.
-        </p>
-      </div>
-
-      <div>
-        <h2>With a FREE membership you get:</h2>
-
-        <ul>
-          <li>✅ Your own personal workout database</li>
-          <li>✅ A searchable exercise database of over 10,000 items</li>
-          <li>✅ Create and monitor activity reports</li>
-          <li>✅ Calculate your body mass index</li>
-        </ul>
-
+      <div className={"container"}>
+        <img
+          className={"container_image"}
+          src="/images/samuel-girven-BBR_zigEmyQ-unsplash.jpg"
+        />
         <div>
-          <h2>Don't hesitate! Be fit and write your own fitness script!</h2>
+          <p>
+            "Our technology is so simple to use. Over time, we all have a
+            propensity to follow the same workout. fitscript.com keeps track of
+            your prior workouts and recalls the activities you've added to your
+            log the most frequently. Accordingly, it gets simpler the more you
+            log your workouts."
+          </p>
         </div>
       </div>
-      <Link to="/signup">
-        <button>Sign up for FREE!</button>
-      </Link>
+
+      <div>
+        <div className={"container-two"}>
+          <br />
+          <div className={"container-card"}>
+            <img
+              src="/images/photo-1550345332-09e3ac987658.avif"
+              style={{ height: "300px", width: "300px" }}
+            />
+            {/* <h3 style={{ marginTop: "10px" }}>
+              Your own personal workout database
+            </h3> */}
+          </div>
+          <div className={"container-card"}>
+            <img
+              src="/images/humphrey-muleba-LOA2mTj1vhc-unsplash.jpg"
+              style={{ height: "300px", width: "300px" }}
+            />
+            {/* <h3 style={{ marginTop: "10px" }}>
+              A searchable exercise database of over 10,000 items
+            </h3> */}
+          </div>
+          <div className={"container-card"}>
+            <img
+              src="/images/istockphoto-1303295576-612x612.jpg"
+              style={{ height: "300px", width: "300px" }}
+            />
+            {/* <h3 style={{ marginTop: "10px" }}>
+              Create and monitor activity reports
+            </h3> */}
+          </div>
+          {/* <h2>Don't hesitate! Be fit and write your own fitness script!</h2> */}
+        </div>
+      </div>
+      <div className={"container-join"}>
+        <h1
+          style={{
+            textAlign: "center",
+            backgroundColor: "#CAD2C5",
+            padding: "50px",
+          }}
+        >
+          Write your fitness script today <br />
+          <Link to="/signup">
+            <button className={"button-join button1"}>Join now</button>
+          </Link>
+        </h1>
+      </div>
     </div>
   );
 }
