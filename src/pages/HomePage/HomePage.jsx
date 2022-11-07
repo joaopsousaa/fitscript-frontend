@@ -5,6 +5,12 @@ function HomePage() {
   return (
     <div>
       <div>
+        <div className={"homepage-banner"}>
+          <img
+            src="/images/training-gyms-motivational-typography-wallpaper-preview.jpg"
+            style={{ height: "410px", width: "950px" }}
+          />
+        </div>
         <h2>About us</h2>
         <p>
           We all know it's difficult to lose weight and build muscle. However,
