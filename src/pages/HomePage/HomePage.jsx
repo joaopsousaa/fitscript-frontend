@@ -5,7 +5,17 @@ function HomePage() {
   return (
     <div>
       <div>
+<<<<<<< HEAD
         <h2 style={{ fontSize: "24px" }}>About us</h2>
+=======
+        <div className={"homepage-banner"}>
+          <img
+            src="/images/training-gyms-motivational-typography-wallpaper-preview.jpg"
+            style={{ height: "410px", width: "950px" }}
+          />
+        </div>
+        <h2>About us</h2>
+>>>>>>> abhijeet
         <p>
           We all know it's difficult to lose weight and build muscle. However,
           if you become a member of fitscript.com, you'll have access to the

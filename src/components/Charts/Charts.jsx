@@ -4,6 +4,7 @@ import Chart from "chart.js/auto";
 
 function Charts({ workoutDates, workoutTime }) {
   console.log(Chart);
+
   return (
     <div>
       <Line
