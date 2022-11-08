@@ -44,29 +44,61 @@ function LoginPage() {
       });
   };
 
+  // const togglePassword = (button) => {
+  //   button.classlist.toggle("showing");
+  //   const input = document.getElementById("password");
+
+  //   input.type = input.type === "password" ? "text" : "password";
+  // };
+
   return (
-    <div className="LoginPage">
-      <h1>Login</h1>
+    <body>
+      <div className="login-card">
+        <h2>Login</h2>
+        <h3>Enter your credentials</h3>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <form className={"login-form"} onSubmit={handleLoginSubmit}>
+          <label>Email</label>
+          <input
+            className={"control"}
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+            placeholder="email"
+          />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          <br />
 
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <label>Password</label>
+          <input
+            className={"control"}
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+            placeholder="password"
+          />
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
-    </div>
+          {/* <button
+            className={"toggle"}
+            placeholder="show"
+            type="button"
+            onClick={togglePassword}
+          ></button> */}
+
+          <br />
+
+          <button className={"control"} type="submit">
+            LOGIN
+          </button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+        <h3 style={{ marginTop: "30px" }}>Don't have an account yet?</h3>
+        <Link to={"/signup"}> Sign Up</Link>
+      </div>
+    </body>
   );
 }
 
