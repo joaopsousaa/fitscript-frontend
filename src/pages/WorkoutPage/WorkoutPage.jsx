@@ -58,14 +58,31 @@ function WorkoutPage() {
   }
 
   function addSet() {
-    form.sets.push(arrayOfSets);
-    setArrayOfSets({ numberOfReps: 0, weightLifted: 0 });
-    alert("Set added");
+    if (form.name !== "") {
+      form.sets.push(arrayOfSets);
+      setArrayOfSets({ numberOfReps: 0, weightLifted: 0 });
+      alert("Set added");
+    } else {
+      alert("Please choose an exercise");
+    }
+  }
+
+  function deleteSet(workoutIndex, setIndex) {
+    const filteredWorkout = workout.filter((workoutToDelete) => {
+      if (
+        workoutToDelete.sets[setIndex] === workout[workoutIndex].sets[setIndex]
+      ) {
+        workoutToDelete.sets.splice(setIndex, 1);
+      }
+      return workout;
+    });
+
+    console.log("THIS IS FILTERED WORKOUT", filteredWorkout);
+    setWorkout(filteredWorkout);
   }
 
   function addExercise() {
     setWorkout([...workout, form]);
-    // workout.push(form);
     setForm({ name: "", sets: [] });
   }
 
@@ -190,7 +207,7 @@ function WorkoutPage() {
         )}
       </form>
 
-      <ExerciseCard workout={workout} />
+      <ExerciseCard workout={workout} deleteSet={deleteSet} />
     </div>
   );
 }

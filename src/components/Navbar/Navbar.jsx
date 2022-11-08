@@ -9,9 +9,8 @@ const Button = styled.button`
   color: white;
   font-size: 16px;
   cursor: pointer;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  height: 38px;
-  line-height: 38px;
+  ${"" /* border: 1px solid rgba(0, 0, 0, 0.2); */}
+  height: 100%;
   width: 100px;
   border-radius: 19px;
 `;

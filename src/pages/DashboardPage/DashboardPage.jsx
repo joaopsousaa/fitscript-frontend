@@ -1,7 +1,6 @@
 import "./DashboardPage.css";
 import Charts from "../../components/Charts/Charts";
 import TotalWeightLifted from "../../components/Charts/TotalWeightLifted";
-import Loading from "../../components/Loading/Loading";
 import { UserWorkoutsContext } from "../../context/userWorkouts.context";
 import { format } from "date-fns";
 import { useState, useRef, useContext } from "react";
@@ -39,14 +38,27 @@ function DashboardPage() {
   const inputRef1 = useRef();
   const inputRef2 = useRef();
 
-  function filterDates() {
-    const workoutDatesCopy = [...workoutDate];
-    const workoutTimeCopy = [...workoutTotalTimeWorkingOut];
-    const workoutWeightLiftedCopy = [...totalWeightLiftedPerWorkout];
+  let startDate = format(new Date(inputRef1.current.value), "dd/MM/yyyy");
+  let endDate = format(new Date(inputRef2.current.value), "dd/MM/yyyy");
 
-    let startDate = format(new Date(inputRef1.current.value), "dd/MM/yyyy");
-    let endDate = format(new Date(inputRef2.current.value), "dd/MM/yyyy");
-    console.log("This is Start Date", startDate);
+  const workoutDatesCopy = [...workoutDate];
+  const workoutTimeCopy = [...workoutTotalTimeWorkingOut];
+  const workoutWeightLiftedCopy = [...totalWeightLiftedPerWorkout];
+
+  const checkValidInputStartDate = workoutDatesCopy.find((element) => {
+    return startDate === element;
+  });
+  if (checkValidInputStartDate === undefined) {
+    alert("Please choose a day that you have worked out");
+  }
+  const checkValidInputEndDate = workoutDatesCopy.find((element) => {
+    return endDate === element;
+  });
+  if (checkValidInputEndDate === undefined) {
+    alert("Please choose a day that you have worked out");
+  }
+
+  function filterDates() {
     const indexStartDate = workoutDatesCopy.indexOf(startDate);
     const indexEndDate = workoutDatesCopy.indexOf(endDate);
 
@@ -73,34 +85,42 @@ function DashboardPage() {
   return (
     <div>
       <h2>Welcome to your dashboard!</h2>
-      {userWorkouts.length === 0 ? (
-        <Loading />
-      ) : (
-        <>
+      <>
+        <div className="charts-container">
           <TotalWeightLifted
             workoutDates={workoutDates}
             weight={workoutWeightLiftedPerWorkout}
           />
           <Charts workoutDates={workoutDates} workoutTime={workoutTime} />
-          Start:{" "}
-          <input
-            type="date"
-            // min={workoutDates[0]}
-            // max={workoutDates[workoutDates.length - 1]}
-            ref={inputRef1}
-          ></input>
-          End:{" "}
-          <input
-            type="date"
-            // min="2022-10-30"
-            // max={workoutDates[workoutDates.length - 1]}
-            ref={inputRef2}
-          ></input>
-          <button type="button" onClick={filterDates}>
+        </div>
+        <div className="filter-dates-container">
+          <label>
+            Start:{" "}
+            <input
+              type="date"
+              // min={workoutDates[0]}
+              // max={workoutDates[workoutDates.length - 1]}
+              ref={inputRef1}
+            ></input>
+          </label>
+          <label>
+            End:{" "}
+            <input
+              type="date"
+              // min={workoutDates[0]}
+              // max={workoutDates[workoutDates.length - 1]}
+              ref={inputRef2}
+            ></input>
+          </label>
+          <button
+            className="btn-filter-dates"
+            type="button"
+            onClick={filterDates}
+          >
             Filter
           </button>
-        </>
-      )}
+        </div>
+      </>
     </div>
   );
 }
