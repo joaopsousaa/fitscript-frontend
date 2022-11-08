@@ -1,6 +1,9 @@
 nav {
+  position: sticky;
+  top: 0;
   background-color: var(--third-clr);
   height: 7vh;
+  width: 100%;
 }
 
 .logo {
@@ -17,6 +20,8 @@ ul {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  align-items: center;
+  height: 100%;
 }
 
 ul:nth-last-child(1) {
@@ -24,13 +29,12 @@ ul:nth-last-child(1) {
 }
 
 li {
-  padding: 14px 16px;
+  padding: 1% 2%;
 }
 
-/* li a:focus, */
-li:nth-child(n + 3):hover {
+li:nth-child(n + 1):hover {
   margin: 0;
-  padding: 14px 16px;
+  padding: 1% 2%;
   background-color: #111;
 }
 
