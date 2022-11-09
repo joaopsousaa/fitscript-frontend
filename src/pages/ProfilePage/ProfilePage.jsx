@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import profileService from "../../services/profile.service";
-// import { AuthContext } from "../../context/auth.context";
-//import Goal from "../../components/Goal/Goal";
+import "./ProfilePage.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
 
 function ProfilePage() {
-  // const { user, authenticate } = AuthProviderWrapper();
+  const { logOutUser } = useContext(AuthContext);
   const [userData, setUserData] = useState({
     email: "",
     gender: "",
-    // smoking: "",
-    // alcohol: "",
     birthdate: "",
     name: "",
     password: "",
@@ -28,8 +27,6 @@ function ProfilePage() {
     setUserData({
       ...userData,
       gender: selected,
-      // smoking: selectedTwo,
-      // alcohol: selectedThree,
     });
   }
   console.log("THIS IS USER DATA", userData);
@@ -43,8 +40,6 @@ function ProfilePage() {
       .createOne(requestBody)
       .then((response) => {
         console.log("RESPONSE:", response);
-
-        // authenticate(response.data);
       })
       .catch((error) => {
         console.log("ERROR:", error);
@@ -67,115 +62,85 @@ function ProfilePage() {
   }
 
   return (
-    <div>
-      <h1>Profile page</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            onChange={handleChange}
-            value={userData.name}
-          />
-        </label>
+    <div className="profile-container">
+      <h4>USER INFORMATION</h4>
+      <form onSubmit={handleSubmit} className="profile-form">
+        <label className="form-control-label">Name </label>
         <br />
-
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            onChange={handleChange}
-            value={userData.email}
-          />
-        </label>
+        <input
+          type="text"
+          name="name"
+          onChange={handleChange}
+          value={userData.name}
+          className={"control"}
+        />
         <br />
-
-        <label>
-          Password:
-          <input type="password" name="password" onChange={handleChange} />
-        </label>
+        <label className="form-control-label">Email </label> <br />
+        <input
+          type="email"
+          name="email"
+          onChange={handleChange}
+          value={userData.email}
+          className={"control"}
+        />
         <br />
-
-        <label>
-          Confirm Password:
-          <input
-            type="password"
-            name="confirmPassword"
-            onChange={handleChange}
-          />
-        </label>
+        <label className="form-control-label">Password </label>
         <br />
-
-        <label>
-          Gender:
-          <label>Male</label>
-          <input
-            type="radio"
-            name="gender"
-            onChange={handleRadioButton}
-            selected="male"
-          />
-          <label>Female</label>
-          <input
-            type="radio"
-            name="gender"
-            onChange={handleRadioButton}
-            selected="female"
-          />
-        </label>
+        <input
+          className={"control"}
+          type="password"
+          name="password"
+          onChange={handleChange}
+        />
         <br />
-
-        <label>
-          Birthdate:
-          <input type="date" name="birthdate" onChange={handleChange} />
-        </label>
+        <label className="form-control-label">Confirm Password </label>
         <br />
-
-        {/* <label>
-          Smoking:
-          <label>Yes</label>
-          <input
-            type="radio"
-            name="smoking"
-            onChange={handleRadioButton}
-            selected="yes"
-          />
-          <label>No</label>
-          <input
-            type="radio"
-            name="smoking"
-            onChange={handleRadioButton}
-            selected="no"
-          />
-        </label>
+        <input
+          className={"control"}
+          type="password"
+          name="confirmPassword"
+          onChange={handleChange}
+        />
         <br />
-
-        <label>
-          Alcohol:
-          <label>Yes</label>
-          <input
-            type="radio"
-            name="alcohol"
-            onChange={handleRadioButton}
-            selected="yes"
-          />
-          <label>No</label>
-          <input
-            type="radio"
-            name="alcohol"
-            onChange={handleRadioButton}
-            selected="no"
-          />
-        </label>
-        <br /> */}
-
-        <button type="submit"> Update </button>
+        <label className="form-control-label">Gender </label>
+        <br />
+        <label className="form-control-label">Male</label>
+        <input
+          className={"control-gender"}
+          type="radio"
+          name="gender"
+          onChange={handleRadioButton}
+          selected="male"
+        />
+        <label className="form-control-label">Female</label>
+        <input
+          className={"control-gender"}
+          type="radio"
+          name="gender"
+          onChange={handleRadioButton}
+          selected="female"
+        />
+        <br />
+        <label className="form-control-label">Birthdate </label>
+        <br />
+        <input
+          className={"control"}
+          type="date"
+          name="birthdate"
+          onChange={handleChange}
+        />
+        <br />
+        <button className={"control"} type="submit">
+          {" "}
+          Update{" "}
+        </button>
         <br />
       </form>
       <form onSubmit={handleDelete}>
-        <button type="submit"> Delete </button>
+        <button className={"control"} type="submit">
+          {" "}
+          Delete{" "}
+        </button>
       </form>
     </div>
   );

@@ -105,7 +105,7 @@
       }
       .container-card{
         align-items: center;
-        background-color: #84A98C;
+        background-color: #fff;
         border: 1px solid #52796F;
         display: flex;
         height: 400px;
@@ -118,7 +118,12 @@
           object-fit: cover;
           height: 400px;
           width: 400px;
+          transition: transform .2s; /* Animation */
         }
+
+        .container-card:hover {
+          transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+         }
        
       
 

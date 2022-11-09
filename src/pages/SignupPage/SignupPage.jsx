@@ -48,32 +48,55 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <body>
+      <div className="signup-card">
+        <h2>Sign Up</h2>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <form className={"signup-form"} onSubmit={handleSignupSubmit}>
+          <label>Email</label>
+          <input
+            className={"control"}
+            type="email"
+            name="email"
+            placeholder="email"
+            value={email}
+            onChange={handleEmail}
+          />
+          <br />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          <label>Password</label>
+          <input
+            className={"control"}
+            type="password"
+            name="password"
+            placeholder="password"
+            value={password}
+            onChange={handlePassword}
+          />
+          <br />
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+          <label>Name</label>
+          <input
+            className={"control"}
+            type="text"
+            name="name"
+            placeholder="name"
+            value={name}
+            onChange={handleName}
+          />
+          <br />
 
-        <button type="submit">Sign Up</button>
-      </form>
+          <button className={"control"} type="submit">
+            Sign Up
+          </button>
+        </form>
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
-    </div>
+        <h3 style={{ marginTop: "30px" }}>Already have account?</h3>
+        <Link to={"/login"}> Login</Link>
+      </div>
+    </body>
   );
 }
 

@@ -1,0 +1,20 @@
+.footer {
+    display: grid;
+    background: black;
+    padding: 20px;
+    color: #fff;
+    place-items: center;
+}
+
+.singleCol {
+    max-width: 750px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+}
+
+.social-media-icon {
+    font-size: 1.7rem;
+    
+}

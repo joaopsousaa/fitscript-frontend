@@ -77,17 +77,19 @@ function Goal({ title, deadline }) {
 
         <br />
 
-        <input
-          type="date"
-          name="deadline"
-          onChange={handleChange}
-          value={goal.deadline}
-        ></input>
-        <p>Deadline</p>
+        <p style={{ textAlign: "center" }}>Deadline</p>
+        <div className="form-date">
+          <input
+            type="date"
+            name="deadline"
+            onChange={handleChange}
+            value={goal.deadline}
+          ></input>
+        </div>
 
         <br />
 
-        <button className={"button-goal button1"} type="submit">
+        <button className={"control"} type="submit">
           {" "}
           Submit
         </button>

@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
+import Footer from "../../components/Footer/Footer";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -51,6 +52,15 @@ function LoginPage() {
   //   input.type = input.type === "password" ? "text" : "password";
   // };
 
+  function togglePassword() {
+    let x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
   return (
     <body>
       <div className="login-card">
@@ -76,9 +86,12 @@ function LoginPage() {
             type="password"
             name="password"
             value={password}
+            id="myInput"
             onChange={handlePassword}
             placeholder="password"
           />
+          <label>Show Password</label>
+          <input type="checkbox" onclick={togglePassword}></input>
 
           {/* <button
             className={"toggle"}
@@ -97,6 +110,9 @@ function LoginPage() {
 
         <h3 style={{ marginTop: "30px" }}>Don't have an account yet?</h3>
         <Link to={"/signup"}> Sign Up</Link>
+      </div>
+      <div>
+        <Footer />
       </div>
     </body>
   );

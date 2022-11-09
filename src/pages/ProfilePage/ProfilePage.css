@@ -1,0 +1,78 @@
+.profile-container {
+    width: 600px;
+    border-radius: 1.25rem;
+    padding: 30px 30px 30px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    background: #CAD2C5;
+}
+
+.profile-form {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    gap: 2px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.profile-form > button.control {
+
+    cursor: pointer;
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+    background: #52796F;
+    color: #f9f9f9;
+    border: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 2px;
+    transition: all 0.375s;
+
+}
+
+button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.control {
+    border: 0;
+    border-radius: 8px;
+    outline: none;
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+    background: #edeaf7;
+    color: #5a4f79;
+    font-family: inherit;
+    font-size: 16px;
+    transition: 0.4s;
+}
+
+.form-control-label {
+    font-size: .975rem;
+    font-weight: 600;
+    color: #525f7f;
+  }
+  
+  h4 {
+    font-weight: 500;
+    line-height: 1.5;
+    color: #32325d;
+  }
+
+  .control-gender {
+    height: 16px;
+    padding: 0 16px;
+    background: #edeaf7;
+    color: #5a4f79;
+    transition: 0.4s;
+
+}

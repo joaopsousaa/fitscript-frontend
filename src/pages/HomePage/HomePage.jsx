@@ -1,5 +1,7 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer/Footer";
 
 function HomePage() {
   return (
@@ -93,7 +95,7 @@ function HomePage() {
           style={{
             textAlign: "center",
             backgroundColor: "#CAD2C5",
-            padding: "50px",
+            padding: "10px",
           }}
         >
           Write your fitness script today <br />
@@ -101,6 +103,9 @@ function HomePage() {
             <button className={"button-join button1"}>Join now</button>
           </Link>
         </h1>
+        <div>
+          <Footer />
+        </div>
       </div>
     </div>
   );
