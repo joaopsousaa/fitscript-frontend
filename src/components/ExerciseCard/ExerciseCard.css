@@ -18,3 +18,11 @@
 .workout-log-name {
   border-bottom: 1px solid #111;
 }
+
+h3:empty {
+  display: none;
+}
+
+h3:has(div) {
+  display: none;
+}
