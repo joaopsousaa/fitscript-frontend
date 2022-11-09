@@ -16,7 +16,6 @@ function WorkoutPage() {
       sets: [],
     },
   ]);
-
   // console.log("THIS IS WORKOUTTTT", workout);
 
   const [arrayOfSets, setArrayOfSets] = useState({
@@ -69,10 +68,14 @@ function WorkoutPage() {
 
   function deleteSet(workoutIndex, setIndex) {
     const filteredWorkout = workout.filter((workoutToDelete) => {
+      console.log(workout[workoutIndex].sets[setIndex]);
       if (
         workoutToDelete.sets[setIndex] === workout[workoutIndex].sets[setIndex]
       ) {
         workoutToDelete.sets.splice(setIndex, 1);
+        if (workoutToDelete.sets.length === 0) {
+          delete workoutToDelete.name;
+        }
       }
       return workout;
     });
@@ -82,8 +85,10 @@ function WorkoutPage() {
   }
 
   function addExercise() {
-    setWorkout([...workout, form]);
-    setForm({ name: "", sets: [] });
+    if (form.name !== "" && form.sets.length !== 0) {
+      setWorkout([...workout, form]);
+      setForm({ name: "", sets: [] });
+    }
   }
 
   function startWorkoutTime() {

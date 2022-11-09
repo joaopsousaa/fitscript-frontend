@@ -9,9 +9,10 @@ function ExerciseCard({ workout, deleteSet }) {
           return (
             <>
               <div className="workout-log-exercise-container">
-                <div key={el.id}>
-                  <h3 className="workout-log-name">{el.name}</h3>
-                </div>
+                <h3 key={el.id} className="workout-log-name">
+                  {el.name}
+                </h3>
+
                 {el.sets.map((element, index) => {
                   return (
                     <>

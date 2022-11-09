@@ -5,13 +5,12 @@ import { AuthContext } from "../../context/auth.context";
 import styled from "styled-components";
 
 const Button = styled.button`
-  background-color: #52796f;
+  background: none;
   color: white;
   font-size: 16px;
   cursor: pointer;
-  ${"" /* border: 1px solid rgba(0, 0, 0, 0.2); */}
   height: 100%;
-  width: 100px;
+  width: 100%;
   border-radius: 19px;
 `;
 

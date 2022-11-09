@@ -27,42 +27,40 @@ function DashboardPage() {
     workout.reduce((acc, currentValue) => acc + currentValue, 0)
   );
 
-  console.log("this is totalweight", totalWeightLiftedPerWorkout);
+  // console.log("this is totalweight", totalWeightLiftedPerWorkout);
 
   const [workoutDates, setWorkoutDates] = useState(workoutDate);
   const [workoutTime, setWorkoutTime] = useState(workoutTotalTimeWorkingOut);
   const [workoutWeightLiftedPerWorkout, setworkoutWeightLiftedPerWorkout] =
     useState(totalWeightLiftedPerWorkout);
-  console.log("THIS IS WORKOUT DATE", workoutDate[0]);
 
   const inputRef1 = useRef();
   const inputRef2 = useRef();
 
-  let startDate = format(new Date(inputRef1.current.value), "dd/MM/yyyy");
-  let endDate = format(new Date(inputRef2.current.value), "dd/MM/yyyy");
-
-  const workoutDatesCopy = [...workoutDate];
-  const workoutTimeCopy = [...workoutTotalTimeWorkingOut];
-  const workoutWeightLiftedCopy = [...totalWeightLiftedPerWorkout];
-
-  const checkValidInputStartDate = workoutDatesCopy.find((element) => {
-    return startDate === element;
-  });
-  if (checkValidInputStartDate === undefined) {
-    alert("Please choose a day that you have worked out");
-  }
-  const checkValidInputEndDate = workoutDatesCopy.find((element) => {
-    return endDate === element;
-  });
-  if (checkValidInputEndDate === undefined) {
-    alert("Please choose a day that you have worked out");
-  }
-
   function filterDates() {
+    const workoutDatesCopy = [...workoutDate];
+    const workoutTimeCopy = [...workoutTotalTimeWorkingOut];
+    const workoutWeightLiftedCopy = [...totalWeightLiftedPerWorkout];
+
+    let startDate = format(new Date(inputRef1.current.value), "dd/MM/yyyy");
+    let endDate = format(new Date(inputRef2.current.value), "dd/MM/yyyy");
+
     const indexStartDate = workoutDatesCopy.indexOf(startDate);
     const indexEndDate = workoutDatesCopy.indexOf(endDate);
 
-    console.log(indexEndDate);
+    const checkValidInputStartDate = workoutDatesCopy.find((element) => {
+      return startDate === element;
+    });
+    if (checkValidInputStartDate === undefined) {
+      alert("Please choose a day that you have worked out");
+    }
+
+    const checkValidInputEndDate = workoutDatesCopy.find((element) => {
+      return endDate === element;
+    });
+    if (checkValidInputEndDate === undefined) {
+      alert("Please choose a day that you have worked out");
+    }
     //slice the array
     const filterWorkoutDate = workoutDatesCopy.slice(
       indexStartDate,
