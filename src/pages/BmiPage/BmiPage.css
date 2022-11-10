@@ -5,13 +5,13 @@
   margin: 0 auto;
   border-radius: 5px;
   background-color: #cad2c5;
-  padding: 50px;
+  padding: 30px;
   width: 85%;
+  margin-top: 50px;
 }
 
-/* input[type="number"],
-select {
-  width: 40%;
+.input {
+  width: 35%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -20,22 +20,13 @@ select {
   box-sizing: border-box;
 }
 
-input[type=""],
-select {
-  width: 40%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-} */
+
 
 .button-bmi {
   background-color: #52796f; /* Green */
   border: none;
   color: white;
-  padding: 16px 32px;
+  padding: 12px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -62,10 +53,11 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 25%;
-  border-radius: 0;
-  background: #fff;
+  width: 30%;
+  border-radius: 5px;
+  background: #52796F;
   box-shadow: -2px 2px 7px rgb(0 0 0 / 13%);
-  margin-top: 40px;
-  margin-left: 40%;
+  margin: 0 auto;
+  margin-top: 100px;
+  padding: 25px;
 }

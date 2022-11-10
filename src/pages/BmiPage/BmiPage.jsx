@@ -52,6 +52,7 @@ function BmiPage() {
         <label>
           Weight:
           <input
+            className="input"
             type="number"
             name="weight"
             onChange={handleChange}
@@ -64,6 +65,7 @@ function BmiPage() {
         <label>
           Height:
           <input
+            className="input"
             type="number"
             name="height"
             onChange={handleChange}
@@ -76,7 +78,8 @@ function BmiPage() {
         <label>
           Age:
           <input
-            type=""
+            className="input"
+            type="number"
             name="age"
             onChange={handleChange}
             value={form.age}

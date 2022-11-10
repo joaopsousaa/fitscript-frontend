@@ -28,50 +28,33 @@
 
     .container {
         display: flex;
+        flex-direction: column;
         background-color: #CAD2C5;
+        height: 500px;
+
     }
     
-	.container_image {
-		width: 500px;
-        height: 500px;
-        margin-left: 200px;
-        margin-right: 50px;
-        margin-bottom: 50px;
+	.container_content {
+         display: flex;
+         flex-direction: row;
+        justify-content: space-between;
+        margin-left: 50px;
         margin-top: 50px;
+        margin-bottom: 50px;
+        gap: 50px;
 	}
 
-    .container p {
-        margin-right: 50px;
-        text-align: left;
-        font-size: 36px;
-        line-height: 50px;
-        margin-top: 100px;
-    }
-
-    /* .container-two {
-        
-        display: flex;
-        justify-content: center;
-        margin-top: 50px;
-        justify-content: space-evenly;
-        margin-right: 100px;
-        
-    }
-
-    .container-card{
-        flex-direction: row;
-        justify-content: space-evenly;
-        text-align: center;
-        vertical-align: top;
-        width: 300px;
-        margin-bottom: 50px;
-    } */
+  .benefits {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 
     .button-join {
-        background-color: #4CAF50; /* Green */
+        background-color: #52796F; /* Green */
         border: none;
         color: white;
-        padding: 16px 32px;
+        padding: 8px 16px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -80,18 +63,19 @@
         transition-duration: 0.4s;
         cursor: pointer;
         border-radius: 5px;
-        width: 10%;
-        margin-top: 40px;
+        width: 8%;
+        margin-top: 10px;
+        margin-bottom: 10px;
       }
     
       .button1 {
         background-color: white; 
         color: black; 
-        border: 2px solid #4CAF50;
+        border: 2px solid #52796F;
       }
     
       .button1:hover {
-        background-color: #4CAF50;
+        background-color: #52796F;
         color: white;
       }
 
@@ -100,7 +84,7 @@
         background: #fff;
         display: flex;
         justify-content: center;
-        height: 75vh;
+        height: 65vh;
         width: 100vw;
       }
       .container-card{
@@ -124,6 +108,35 @@
         .container-card:hover {
           transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
          }
+
+         .button-benefits {
+          background-color: #52796F; /* Green */
+          border: none;
+          color: white;
+          padding: 8px 16px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 2px 1px;
+          transition-duration: 0.4s;
+          cursor: pointer;
+          border-radius: 5px;
+          width: 100%;
+          margin-top: 0px;
+          margin-bottom: 70px;
+        }
+      
+        .button2 {
+          background-color: white; 
+          color: black; 
+          border: 2px solid #52796F;
+        }
+      
+        .button2:hover {
+          background-color: #52796F;
+          color: white;
+        }
        
       
 
