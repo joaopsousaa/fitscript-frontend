@@ -1,6 +1,6 @@
 .footer {
     display: grid;
-    background: black;
+    background: #12131C;
     padding: 20px;
     color: #fff;
     place-items: center;
@@ -18,3 +18,12 @@
     font-size: 1.7rem;
     
 }
+
+.footer_divider {
+    margin-block: 1rem;
+    border: none;
+    border-top: 2px solid white;
+    margin-top: 10px;
+}
+
+

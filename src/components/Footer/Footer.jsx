@@ -25,7 +25,12 @@ function Footer() {
         <a href="https://medium.com" role={"button"} />
         <FontAwesomeIcon icon={faLinkedin} />
       </div>
-      <h4 style={{ marginTop: "10px" }}>@2022 Copyright fitscript.com</h4>
+
+      <div class="footer_divider">
+        <span class="copyright">
+          &copy; 2022 fitscript.com. All rights reserved.
+        </span>
+      </div>
     </div>
   );
 }

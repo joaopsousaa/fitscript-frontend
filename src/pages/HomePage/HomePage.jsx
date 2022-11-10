@@ -42,12 +42,12 @@ function HomePage() {
       </div>
 
       <div className={"container"}>
-        <img
-          className={"container_image"}
-          src="/images/samuel-girven-BBR_zigEmyQ-unsplash.jpg"
-        />
-        <div>
-          <p>
+        <div className={"container_content"}>
+          <img
+            src="/images/technology-1210081964-612x612.jpeg"
+            style={{ height: "auto", width: "350px" }}
+          />
+          <p style={{ fontSize: "36px", wordSpacing: "0.9rem" }}>
             "Our technology is so simple to use. Over time, we all have a
             propensity to follow the same workout. fitscript.com keeps track of
             your prior workouts and recalls the activities you've added to your
@@ -90,12 +90,37 @@ function HomePage() {
           {/* <h2>Don't hesitate! Be fit and write your own fitness script!</h2> */}
         </div>
       </div>
+
+      <span className="benefits">
+        <Link to="/workout">
+          <button className={"button-benefits button2"}>
+            Explore Workouts
+          </button>
+        </Link>
+
+        <Link to="/findgym">
+          <button className={"button-benefits button2"}>Find a Gym</button>
+        </Link>
+
+        <Link to="/dashboard">
+          <button className={"button-benefits button2"}>
+            Download reports
+          </button>
+        </Link>
+      </span>
+
       <div className={"container-join"}>
         <h1
           style={{
             textAlign: "center",
             backgroundColor: "#CAD2C5",
-            padding: "10px",
+            padding: "5px",
+            margin: 0,
+            letterSpacing: "1.5px",
+            fontWeight: "600",
+            lineHeight: "1.2",
+            fontSize: "32px",
+            fontfamily: "Gilroy W05",
           }}
         >
           Write your fitness script today <br />
