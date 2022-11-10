@@ -1,3 +1,13 @@
+.goal-container {
+  height: 93vh;
+  margin: 0;
+}
+
+.goal-title {
+  margin-bottom: 5%;
+  margin-left: 15%;
+}
+
 .goal-form {
   display: flex;
   flex-direction: column;
@@ -5,48 +15,67 @@
 }
 
 .goal-form-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: repeat(1, auto);
+  grid-auto-flow: column;
   text-align: center;
-  margin: 0 auto;
-  gap: 50px;
 }
 
 .goal-form-card img:hover {
-    animation: shake 0.5s;
-    animation-iteration-count: infinite;
-  }
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
 
-  @keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
   }
-
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
 
 .form-date {
-    background-color: #52796F;
-    padding: 5px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 84%;
-    left: 57%;
-    font-family: "Roboto Mono",monospace;
-    color: #ffffff;
-    font-size: 14px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    margin-top: 10px;
+  background-color: #52796f;
+  /* padding: 5px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 15%;
+  font-family: "Roboto Mono", monospace;
+  color: #ffffff;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin: 0 auto;
 }
 
 ::-webkit-calendar-picker-indicator {
@@ -56,27 +85,27 @@
   border-radius: 3px;
 }
 
-.goal-form > button.control {
+.goal-form > .button5 {
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  transition-duration: 0.4s;
   cursor: pointer;
   width: 10%;
-  height: 46px;
-  padding: 0 16px;
-  background: #52796F;
-  color: #f9f9f9;
-  border: 0;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-  letter-spacing: 2px;
-  transition: all 0.375s;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 1px solid #52796f;
+  margin-bottom: 10px;
 }
 
-button {
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  margin: 0 auto;
-  margin-top: 30px;
-
+.button5:hover {
+  background-color: #52796f;
+  color: white;
 }

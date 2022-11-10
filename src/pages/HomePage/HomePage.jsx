@@ -10,6 +10,7 @@ function HomePage() {
         <img
           src="/images/challenge-header.gif"
           style={{ height: "410px", width: "950px" }}
+          alt="banner"
         />
       </div>
       <div className={"about-us"}>
@@ -45,9 +46,17 @@ function HomePage() {
         <div className={"container_content"}>
           <img
             src="/images/technology-1210081964-612x612.jpeg"
-            style={{ height: "auto", width: "350px" }}
+            style={{ height: "80%", width: "35%", margin: " auto 0" }}
+            alt="banner2"
           />
-          <p style={{ fontSize: "36px", wordSpacing: "0.9rem" }}>
+          <p
+            style={{
+              fontSize: "30px",
+              wordSpacing: "0.9rem",
+              height: "70%",
+              width: "60%",
+            }}
+          >
             "Our technology is so simple to use. Over time, we all have a
             propensity to follow the same workout. fitscript.com keeps track of
             your prior workouts and recalls the activities you've added to your
@@ -64,6 +73,7 @@ function HomePage() {
             <img
               src="/images/photo-1550345332-09e3ac987658.avif"
               style={{ height: "300px", width: "300px" }}
+              alt="banner3"
             />
             {/* <h3 style={{ marginTop: "10px" }}>
               Your own personal workout database
@@ -73,6 +83,7 @@ function HomePage() {
             <img
               src="/images/humphrey-muleba-LOA2mTj1vhc-unsplash.jpg"
               style={{ height: "300px", width: "300px" }}
+              alt="banner4"
             />
             {/* <h3 style={{ marginTop: "10px" }}>
               A searchable exercise database of over 10,000 items
@@ -82,6 +93,7 @@ function HomePage() {
             <img
               src="/images/istockphoto-1303295576-612x612.jpg"
               style={{ height: "300px", width: "300px" }}
+              alt="banner5"
             />
             {/* <h3 style={{ marginTop: "10px" }}>
               Create and monitor activity reports

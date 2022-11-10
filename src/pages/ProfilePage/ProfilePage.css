@@ -1,78 +1,107 @@
 .profile-container {
-    width: 600px;
-    border-radius: 1.25rem;
-    padding: 30px 30px 30px;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 50px;
-    background: #CAD2C5;
+  width: 600px;
+  border-radius: 1.25rem;
+  padding: 30px 30px 30px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10px;
+  background: #cad2c5;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .profile-form {
-    width: 100%;
-    margin: 0;
-    display: grid;
-    gap: 2px;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: left;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  height: 80%;
 }
 
-.profile-form > button.control {
-
-    cursor: pointer;
-    width: 100%;
-    height: 56px;
-    padding: 0 16px;
-    background: #52796F;
-    color: #f9f9f9;
-    border: 0;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    letter-spacing: 2px;
-    transition: all 0.375s;
-
+.profile-form > .button6 {
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 20%;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 1px solid #52796f;
 }
 
-button {
-    background: transparent;
-    border: 0;
-    cursor: pointer;
+.button6:hover {
+  background-color: #52796f;
+  color: white;
 }
 
 .control {
-    border: 0;
-    border-radius: 8px;
-    outline: none;
-    width: 100%;
-    height: 56px;
-    padding: 0 16px;
-    background: #edeaf7;
-    color: #5a4f79;
-    font-family: inherit;
-    font-size: 16px;
-    transition: 0.4s;
+  border: 0;
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  background: #edeaf7;
+  color: #5a4f79;
+  font-family: inherit;
+  font-size: 16px;
+  transition: 0.4s;
 }
 
 .form-control-label {
-    font-size: .975rem;
-    font-weight: 600;
-    color: #525f7f;
-  }
-  
-  h4 {
-    font-weight: 500;
-    line-height: 1.5;
-    color: #32325d;
-  }
+  font-size: 0.975rem;
+  font-weight: 600;
+  color: #525f7f;
+}
 
-  .control-gender {
-    height: 16px;
-    padding: 0 16px;
-    background: #edeaf7;
-    color: #5a4f79;
-    transition: 0.4s;
+h4 {
+  font-weight: 500;
+  line-height: 1.5;
+  color: #32325d;
+}
 
+.control-gender {
+  background: #edeaf7;
+  color: #5a4f79;
+  transition: 0.4s;
+  margin: 0 10px;
+}
+
+.gender-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.profile-form-1 > .button7 {
+  cursor: pointer;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 2px 1px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  height: 50px;
+  width: 100px;
+  border-radius: 8px;
+  border: 1px solid red;
+}
+.profile-form-1 {
+  height: 50px;
+  width: 100px;
+}
+.button7:hover {
+  background-color: red;
+  color: white;
 }

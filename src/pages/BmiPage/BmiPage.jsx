@@ -60,8 +60,6 @@ function BmiPage() {
           ></input>
         </label>
 
-        <br />
-
         <label>
           Height:
           <input
@@ -73,8 +71,6 @@ function BmiPage() {
           ></input>
         </label>
 
-        <br />
-
         <label>
           Age:
           <input
@@ -85,8 +81,6 @@ function BmiPage() {
             value={form.age}
           ></input>
         </label>
-
-        <br />
 
         <button className={"button-bmi button1"} type="submit">
           Calculate

@@ -40,16 +40,16 @@ function Goal({ title, deadline }) {
   }
 
   return (
-    <div>
-      <h1> My Fitness Goal: </h1>
+    <div className="goal-container">
+      <h1 className="goal-title"> My Fitness Goal: </h1>
       <form onSubmit={handleSubmit} className={"goal-form"}>
         {/* <label>Title</label> */}
-        <br />
         <div className={"goal-form-card"}>
           <div>
             <img
               src="images/morgan-petroski-rx6wXNsXUOE-unsplash.jpg"
               style={{ height: "425px", width: "400px" }}
+              alt="lose weight"
             ></img>
             <p>Lose weight</p>
             <input
@@ -64,6 +64,7 @@ function Goal({ title, deadline }) {
             <img
               src="images/anastase-maragos-9dzWZQWZMdE-unsplash.jpg"
               style={{ height: "425px", width: "400px" }}
+              alt="gain muscle"
             ></img>
             <p>Gain muscle</p>
             <input
@@ -74,11 +75,9 @@ function Goal({ title, deadline }) {
             ></input>
           </div>
         </div>
-
         <br />
-
-        <p style={{ textAlign: "center" }}>Deadline</p>
         <div className="form-date">
+          <p style={{ textAlign: "center" }}>Deadline</p>
           <input
             type="date"
             name="deadline"
@@ -86,10 +85,8 @@ function Goal({ title, deadline }) {
             value={goal.deadline}
           ></input>
         </div>
-
         <br />
-
-        <button className={"control"} type="submit">
+        <button className={"button5"} type="submit">
           {" "}
           Submit
         </button>

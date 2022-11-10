@@ -110,11 +110,7 @@ function DashboardPage() {
               ref={inputRef2}
             ></input>
           </label>
-          <button
-            className="btn-filter-dates"
-            type="button"
-            onClick={filterDates}
-          >
+          <button className="workout-date" type="button" onClick={filterDates}>
             Filter
           </button>
         </div>

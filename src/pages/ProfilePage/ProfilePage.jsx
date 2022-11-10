@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import profileService from "../../services/profile.service";
 import "./ProfilePage.css";
-import { useContext } from "react";
-import { AuthContext } from "../../context/auth.context";
 
 function ProfilePage() {
-  const { logOutUser } = useContext(AuthContext);
   const [userData, setUserData] = useState({
     email: "",
     gender: "",
@@ -66,7 +63,6 @@ function ProfilePage() {
       <h4>USER INFORMATION</h4>
       <form onSubmit={handleSubmit} className="profile-form">
         <label className="form-control-label">Name </label>
-        <br />
         <input
           type="text"
           name="name"
@@ -74,8 +70,7 @@ function ProfilePage() {
           value={userData.name}
           className={"control"}
         />
-        <br />
-        <label className="form-control-label">Email </label> <br />
+        <label className="form-control-label">Email </label>
         <input
           type="email"
           name="email"
@@ -83,63 +78,65 @@ function ProfilePage() {
           value={userData.email}
           className={"control"}
         />
-        <br />
         <label className="form-control-label">Password </label>
-        <br />
         <input
           className={"control"}
           type="password"
           name="password"
           onChange={handleChange}
         />
-        <br />
+
         <label className="form-control-label">Confirm Password </label>
-        <br />
+
         <input
           className={"control"}
           type="password"
           name="confirmPassword"
           onChange={handleChange}
         />
-        <br />
-        <label className="form-control-label">Gender </label>
-        <br />
-        <label className="form-control-label">Male</label>
-        <input
-          className={"control-gender"}
-          type="radio"
-          name="gender"
-          onChange={handleRadioButton}
-          selected="male"
-        />
-        <label className="form-control-label">Female</label>
-        <input
-          className={"control-gender"}
-          type="radio"
-          name="gender"
-          onChange={handleRadioButton}
-          selected="female"
-        />
-        <br />
+        <div className="gender-container">
+          <label className="form-control-label">Gender </label>
+
+          <label className="form-control-label">
+            Male
+            <input
+              className={"control-gender"}
+              type="radio"
+              name="gender"
+              onChange={handleRadioButton}
+              selected="male"
+            />
+          </label>
+
+          <label className="form-control-label">
+            Female
+            <input
+              className={"control-gender"}
+              type="radio"
+              name="gender"
+              onChange={handleRadioButton}
+              selected="female"
+            />
+          </label>
+        </div>
         <label className="form-control-label">Birthdate </label>
-        <br />
+
         <input
           className={"control"}
           type="date"
           name="birthdate"
           onChange={handleChange}
         />
-        <br />
-        <button className={"control"} type="submit">
+
+        <button className={"button6"} type="submit">
           {" "}
           Update{" "}
         </button>
-        <br />
       </form>
-      <form onSubmit={handleDelete}>
-        <button className={"control"} type="submit">
+      <form className="profile-form-1" onSubmit={handleDelete}>
+        <button className={"button7"} type="submit">
           {" "}
-          Delete{" "}
+          Delete Account{" "}
         </button>
       </form>
     </div>

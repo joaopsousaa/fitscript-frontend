@@ -13,5 +13,27 @@ h2 {
 .filter-dates-container {
   display: flex;
   justify-content: center;
-  margin: 10px;
+}
+
+.workout-date {
+  background-color: #52796f;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  width: 6%;
+  font-family: "Roboto Mono", monospace;
+  color: #ffffff;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 1%;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
 }

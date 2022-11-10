@@ -3,13 +3,13 @@
 }
 
 .btn-finish-workout {
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border: 1px solid #52796f;
+  border-radius: 8px;
   font-size: large;
 }
 
 .btn-finish-workout:hover {
-  background: #171a2b;
+  background: #52796f;
   color: white;
   transition: 0.2s all ease-in-out;
 }
@@ -40,13 +40,13 @@
 }
 
 .btn-add-set {
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid #52796f;
   width: 20%;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .btn-add-set:hover {
-  background: #171a2b;
+  background: #52796f;
   color: white;
   transition: 0.2s all ease-in-out;
 }
@@ -56,4 +56,15 @@
   justify-content: center;
   margin-right: 20%;
   margin-bottom: 3%;
+}
+
+.btn-change-exercise {
+  border: 1px solid #52796f;
+  border-radius: 8px;
+}
+
+.btn-change-exercise:hover {
+  background: #52796f;
+  color: white;
+  transition: 0.2s all ease-in-out;
 }

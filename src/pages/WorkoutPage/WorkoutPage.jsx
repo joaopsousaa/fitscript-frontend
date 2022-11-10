@@ -183,8 +183,12 @@ function WorkoutPage() {
                   Add Set
                 </button>
               </div>
-              <button type="button" onClick={addExercise}>
-                Add Exercise
+              <button
+                type="button"
+                onClick={addExercise}
+                className="btn-change-exercise"
+              >
+                Change Exercise
               </button>{" "}
             </div>
           </>

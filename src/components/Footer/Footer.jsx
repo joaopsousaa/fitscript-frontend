@@ -9,21 +9,32 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <div className={"footer"}>
       <div className="singleCol social-media-icon a">
-        <a href="https://facebook.com" role={"button"} />
-        <FontAwesomeIcon icon={faFacebook} />
-        <a href="https://instagram.com" role={"button"} />
-        <FontAwesomeIcon icon={faInstagram} />
-        <a href="https://twitter.com" role={"button"} />
-        <FontAwesomeIcon icon={faTwitter} />
-        <a href="https://medium.com" role={"button"} />
-        <FontAwesomeIcon icon={faMedium} />
-        <a href="https://medium.com" role={"button"} />
-        <FontAwesomeIcon icon={faLinkedin} />
+        <Link to={"/#"}>
+          {" "}
+          <FontAwesomeIcon icon={faFacebook} />
+        </Link>
+
+        <Link to={"/#"}>
+          <FontAwesomeIcon icon={faInstagram} />
+        </Link>
+
+        <Link to={"/#"}>
+          <FontAwesomeIcon icon={faTwitter} />
+        </Link>
+
+        <Link to={"/#"}>
+          <FontAwesomeIcon icon={faMedium} />
+        </Link>
+
+        <Link to={"/#"}>
+          <FontAwesomeIcon icon={faLinkedin} />
+        </Link>
       </div>
 
       <div class="footer_divider">
