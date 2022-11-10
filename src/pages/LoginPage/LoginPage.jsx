@@ -77,8 +77,6 @@ function LoginPage() {
             placeholder="email"
           />
 
-          <br />
-
           <label>Password</label>
           <input
             className={"control"}
@@ -99,8 +97,6 @@ function LoginPage() {
             onClick={togglePassword}
           ></button> */}
 
-          <br />
-
           <button className={"control"} type="submit">
             LOGIN
           </button>
@@ -110,8 +106,7 @@ function LoginPage() {
         <h3 style={{ marginTop: "30px" }}>Don't have an account yet?</h3>
         <Link to={"/signup"}> Sign Up</Link>
       </div>
-      <div>
-      </div>
+      <div></div>
     </body>
   );
 }

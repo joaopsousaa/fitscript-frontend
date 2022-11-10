@@ -46,15 +46,13 @@ function HomePage() {
         <div className={"container_content"}>
           <img
             src="/images/technology-1210081964-612x612.jpeg"
-            style={{ height: "80%", width: "35%", margin: " auto 0" }}
+            style={{ height: "250px", width: "350px", margin: " auto 0" }}
             alt="banner2"
           />
           <p
             style={{
-              fontSize: "30px",
+              fontSize: "28px",
               wordSpacing: "0.9rem",
-              height: "70%",
-              width: "60%",
             }}
           >
             "Our technology is so simple to use. Over time, we all have a

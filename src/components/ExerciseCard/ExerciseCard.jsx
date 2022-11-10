@@ -16,18 +16,21 @@ function ExerciseCard({ workout, deleteSet }) {
                 {el.sets.map((element, index) => {
                   return (
                     <>
-                      <div key={element[index]}>
-                        Set #{el.sets.indexOf(element) + 1}:{" "}
+                      <div className="sets-info" key={element[index]}>
+                        <strong>Set #{el.sets.indexOf(element) + 1}</strong>:{" "}
                         {element.numberOfReps} X {element.weightLifted} kg
-                      </div>
-                      <div>
-                        <button
+                        {/* <button
                           className="btn-delete-set"
                           type="button"
                           onClick={() => deleteSet(i, index)}
-                        >
-                          Delete Set
-                        </button>
+                        > */}
+                        <img
+                          src="/trash-can.png"
+                          alt="delete set"
+                          className="btn-delete-set"
+                          onClick={() => deleteSet(i, index)}
+                        ></img>
+                        {/* </button> */}
                       </div>
                     </>
                   );

@@ -3,10 +3,10 @@
   border-radius: 1.25rem;
   padding: 30px 30px 30px;
   text-align: center;
-  margin: 0 auto;
-  margin-top: 10px;
+  margin-top: 6%;
+  margin-left: auto;
+  margin-right: auto;
   background: #cad2c5;
-  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

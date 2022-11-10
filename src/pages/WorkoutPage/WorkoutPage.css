@@ -68,3 +68,19 @@
   color: white;
   transition: 0.2s all ease-in-out;
 }
+.btn-delete-set {
+  background-color: transparent;
+  color: black;
+  width: 24px;
+  margin-left: 10px;
+  text-align: center;
+  transition-duration: 0.4s;
+}
+.btn-delete-set:hover {
+  border-radius: 5px;
+  border: 1px solid #52796f;
+}
+
+.sets-info {
+  margin-bottom: 10px;
+}

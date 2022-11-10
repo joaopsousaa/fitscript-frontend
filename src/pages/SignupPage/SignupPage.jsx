@@ -62,7 +62,6 @@ function SignupPage() {
             value={email}
             onChange={handleEmail}
           />
-          <br />
 
           <label>Password</label>
           <input
@@ -73,7 +72,6 @@ function SignupPage() {
             value={password}
             onChange={handlePassword}
           />
-          <br />
 
           <label>Name</label>
           <input
@@ -84,7 +82,6 @@ function SignupPage() {
             value={name}
             onChange={handleName}
           />
-          <br />
 
           <button className={"control"} type="submit">
             Sign Up

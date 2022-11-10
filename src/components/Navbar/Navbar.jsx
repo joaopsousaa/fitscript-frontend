@@ -11,7 +11,7 @@ const Button = styled.button`
   cursor: pointer;
   height: 100%;
   width: 100%;
-  border-radius: 19px;
+  border: none;
 `;
 
 function Navbar() {

@@ -1,9 +1,8 @@
-.charts-container > div {
-  display: inline-block;
-  width: 40%;
-  height: auto;
-  margin-top: 50px;
-  margin-right: 20px;
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 5%;
+  gap: 10px;
 }
 
 h2 {
