@@ -43,6 +43,7 @@ function BmiPage() {
       .catch((error) => {
         console.log(error);
       });
+    alert("Your fitness goal has been set successfully!");
   }
 
   return (

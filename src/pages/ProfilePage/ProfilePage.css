@@ -7,7 +7,6 @@
   margin-left: auto;
   margin-right: auto;
   background: #cad2c5;
-  display: flex;
   flex-direction: column;
   justify-content: center;
 }
